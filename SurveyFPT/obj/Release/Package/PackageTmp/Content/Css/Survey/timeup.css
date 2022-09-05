@@ -1,0 +1,33 @@
+.box{
+    width: 60%;
+    margin-left: 20%;
+    
+}
+
+.box-report{
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-top: 15px solid #ef8f11;
+    
+}
+
+.body-report{
+    display: flex;
+    color: red;
+    font-size: 20px;
+    height: 150px;
+    align-items: center;
+}
+
+.text-report{
+    width: 100%;
+}
+.note{
+    /* display: flex; */
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+
+}

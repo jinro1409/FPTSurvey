@@ -1,0 +1,172 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@Html.Partial("_AdminPartial")
+<style>
+    body {
+        line-height: 2;
+    }
+</style>
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <main>
+
+        <h2 style="margin: 0 0 0 7rem" class="dash-title">User</h2>
+
+        <section class="recent">
+            <p id="messager"></p>
+            @*<form action="~/Admin/AdminHome/AssignRole" method="post">*@
+            <div class="row col-sm-12" style="display:flex; float:left">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <input id="id" value="@ViewBag.userDTO.ID" hidden />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email: </td>
+                        <td style="float:left">
+                            <input class="text" id="mail" type="text" name="mail" readonly value="@ViewBag.userDTO.Email">
+                            <select id="fpt" name="fpt" style="margin-top:20px" disabled>
+                                @foreach (var a in ViewBag.fpt)
+                                {
+
+                                    if (ViewBag.ftp == a)
+                                    {
+                                        <option value="@a" selected>
+                                            @a
+                                        </option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@a">
+                                        @a
+                                    </option>
+                                    }
+                                }
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Name: </td>
+                        <td style="float:left">
+                            <input class="text" id="name" type="text" name="name" placeholder="Username" value="@ViewBag.userDTO.Email" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Role:</td>
+                        <td style="float:left">
+                            <select id="role" name="roleid">
+                                @foreach (var a in ViewBag.roles)
+                                {
+                                    if (a.Id == ViewBag.userDTO.Role.ID)
+                                    {
+                                        <option value="@a.Id" selected>
+                                            @a.Name
+                                        </option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@a.Id">
+                                            @a.Name
+                                        </option>
+                                    }
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Active:</td>
+                        <td style="float:left">
+                            @if (ViewBag.userDTO.Status == true)
+                            {
+                                <input type="checkbox" id="active" checked />
+                            }
+                            else
+                            {
+                                <input type="checkbox" id="active" />
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input class="btn btn-success" type="submit" value="ASSIGN" id="btnSave">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </section>
+    </main>
+</div>
+<script>
+    document.getElementById("btnSave").onclick = function () {
+        const mail = document.getElementById("mail");
+        const messager = document.getElementById("messager");
+        var re = /^[A-Za-z]+[0-9A-Za-z_]+$/;
+        var mailValue = mail.value.trim();
+
+        console.log(mail.value);
+        if (mailValue == "" | mailValue == null) {
+            mail.focus();
+            messager.innerHTML = "Fill text please!";
+            messager.style.color = "red";
+            mail.value = "";
+            return;
+        }
+        const check = re.test(String(mailValue));
+        if (!check) {
+            mail.focus();
+            messager.innerHTML = "Email cannot start with number or contain special character!";
+            messager.style.color = "red";
+            mail.value = mail.value.trim();
+            return;
+        }
+        $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: '@Url.Action("AssignRole", "AdminHome",new { area = "Admin" })', // Controller/View
+                data: { //Passing data
+                    ID : $('#id').val(),
+                    Mail: $("#mail").val(), //Reading text box values using Jquery
+                    Roleid: $("#role option:selected").val(),
+                    Fpt: $("#fpt option:selected").val(),
+                    Active: $("#active:checked").val()
+                },
+                success: function (result) {
+                    //console.log(result);
+                    switch (result){
+                        case "1":
+                            result = "Insert success!"
+                            break;
+                        case "2":
+                            result = "Email exited!"
+                            break;
+                        case "3":
+                            result = "Update success!"
+                            break;
+                        case "4":
+                            result = "Email doesn't exit!"
+                            break;
+                    }
+                        mail.focus();
+                        messager.innerHTML = result;
+                        messager.style.color = "red";
+                        mail.value = mail.value.trim();
+
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+
+            })
+    }
+
+
+
+</script>

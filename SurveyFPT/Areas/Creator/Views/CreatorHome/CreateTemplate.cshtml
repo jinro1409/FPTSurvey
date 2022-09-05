@@ -1,0 +1,629 @@
+﻿@model SurveyFPT.DTO.InputDTO.SurveyCreateDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section csssurvey{
+    <link href="~/Content/Css/Creator/createform.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+}
+@section creatorsurvey{
+    <script src="~/Scripts/CreateSurvey/createtemplate.js"></script>
+}
+@Html.Partial("_CreaterPartial")
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <style>
+        .text-limit {
+            width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <main>
+        <h2>Clone survey</h2>
+        @*@using (Html.BeginForm("EditForm", "CreatorHome", FormMethod.Post, new { area = "Creator", enctype = "multipart/form-data" }))*@
+        @*@using (Html.BeginForm("EditForm", "CreatorHome", FormMethod.Post, new { area = "Creator", enctype = "multipart/form-data", @id = "myFormEdit", onsubmit = "return checkEdit('#myFormEdit')" }))*@
+        @using (Html.BeginForm("CreateForm", "CreatorHome", FormMethod.Post, new { area = "Creator", enctype = "multipart/form-data", @id = "myFormTemplate" }))
+        {
+            @Html.AntiForgeryToken()
+            int sindex = 1;
+            int qindex = 1;
+            int seindex = 0;
+            int quindex = 1;
+            int totalQuestion = 0;
+            for (int l = 0; l < Model.Sections.Count; l++)
+            {
+                totalQuestion = totalQuestion + Model.Sections[l.ToString()].Questions.Count;
+            }
+            <div class="survey">
+                <div class="survey-date">
+                    <div class="survey-date-list">
+                        <label class="survey-date-list_txt">Open-time</label>
+                        @Html.TextBoxFor(m => m.OpenTime, "{0:yyyy-MM-dd HH:mm:ss}", new { @class = "survey-date_input", @type = "datetime-local" })
+                        <small class="survey-date-list_noti"></small>
+                    </div>
+                    <div class="survey-date-list">
+                        <label class="survey-date-list_txt">Close-time</label>
+                        @Html.TextBoxFor(m => m.CloseTime, "{0:yyyy-MM-dd HH:mm:ss}", new { @class = "survey-date_input", @type = "datetime-local" })
+                        <small class="survey-date-list_noti"></small>
+                    </div>
+                </div>
+                <div class="survey-option">
+                    <div class="survey-option-check">
+                        @Html.EditorFor(m => m.IsRequire)
+                        <label class="survey-option-check_txt">Required survey</label> <br />
+
+                        @Html.EditorFor(m => m.IsPublish)
+                        <label class="survey-option-check_txt">Public survey</label><br />
+
+                        @Html.EditorFor(m => m.IsAllowChanging)
+                        <label class="survey-option-check_txt">Allow edit</label><br />
+
+
+
+
+                        @*@Html.EditorFor(m => m.IsScoreTaken)
+                            <label class="survey-option-check_txt">Score</label>*@
+                    </div>
+                    <div class="survey-option-category" style="margin-top:8px">
+                        <label style="margin-right:10px">Survey Category</label>
+                        <select name="SurveyCategory.ID" id="survey-Category" class="text-limit" style="width:180px">
+                            @for (int k = 0; k < @ViewBag.ListCategory.Count; k++)
+                            {
+                                if (Model.SurveyCategory.ID == @ViewBag.ListCategory[k].ID)
+                                {
+                                    <option value="@ViewBag.ListCategory[k].ID " selected>@ViewBag.ListCategory[k].Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@ViewBag.ListCategory[k].ID ">@ViewBag.ListCategory[k].Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                @* upload image hieutmt*@
+                <div class="col-sm-12">
+                    <label><b>Choose image: </b></label>
+                    <input type="file" name="imagefile" id="upload_image" accept="image/*" onchange="fileImageValidation()" />
+                    <input type="text" name="tempImage" id="tempImage" value="@Model.BackgroundImage" hidden />
+                </div>
+                <div class="col-sm-12" style="justify-content:center">
+                    <div style="width:100%">
+                        @if (@Model.BackgroundImage != null && @Model.BackgroundImage.ToUpper() != "NULL" && !@Model.BackgroundImage.ToString().Equals(""))
+                        {
+                            <img style="width:100%; height:300px;" id="pre_img" src="~/Content/Img/SurveyImage/@Model.BackgroundImage" alt="No image" />
+                        }
+                        else
+                        {
+                            <img style="width:100%; height:300px;display:none" id="pre_img" src="" alt="No image" />
+                        }
+                    </div>
+                </div>
+                @* end upload image hieutmt*@
+            </div>
+            <div class="input-title">
+                @Html.HiddenFor(m => m.ID)
+                <div class="form-title">
+                    @Html.TextBoxFor(m => m.Name, htmlAttributes: new { @class = "title-name element", @placeholder = "Untitled form" })
+                    <br />
+                    <small></small>
+                </div>
+                <div class="form-description">
+                    @Html.TextAreaFor(m => m.Description, htmlAttributes: new { @class = "title-description element", @placeholder = "Form description" })
+                    <br />
+                    <small></small>
+                </div>
+            </div>
+            <div class="title-form" id="myList">
+                @for (int i = 0; i < Model.Sections.Count; i++)
+                {
+                    <div id="form-section">
+                        @Html.HiddenFor(m => m.Sections[i.ToString()].Status, new { @class = "section-status", @Value = true })
+                        @Html.HiddenFor(m => m.Sections[i.ToString()].ID)
+                        <div class="section section-@sindex">
+                            <div class="section-title">
+                                @Html.TextBoxFor(m => m.Sections[i.ToString()].Name, new { @class = "section-title_input element", @placeholder = "Untitled title" })
+                                <br />
+                                <small></small>
+                            </div>
+                            <div class="section-description">
+                                @Html.TextBoxFor(m => m.Sections[i.ToString()].Description, new { @class = "section-description_input element", @placeholder = "Description" })
+                                <br />
+                                <small></small>
+                            </div>
+                            <div class="section-question section-question-@sindex">
+                                @for (int j = 0; j < Model.Sections[i.ToString()].Questions.Count; j++)
+                                {
+                                    <div class="question question-@sindex">
+                                        @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].Status, new { @class = "question-status", @Value = true })
+                                        @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ID)
+                                        <div class="question-list">
+                                            <div class="question-list-title">
+                                                @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].QuestionLabel,
+                                                new { @class = "question-list-title_input element", @placeholder = "Untitled question" })
+                                                <div class="question-list-title_option">
+                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.OldId, new { @Value = Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID })
+                                                    <select name="Sections[@(i)].Questions[@(j)].QuestionCategory.ID" class="type-question btn-select" id="type-question-@qindex" onchange="selectType(@qindex, @i, @j)">
+                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 1)
+                                                        {
+                                                            <option value="1" selected>Multiple choice</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="1">Multiple choice</option>
+                                                        }
+                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 2)
+                                                        {
+                                                            <option value="2" selected>Checkboxes</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="2">Checkboxes</option>
+                                                        }
+                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 3)
+                                                        {
+                                                            <option value="3" selected>Short answer</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="3">Short answer</option>
+                                                        }
+                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 4)
+                                                        {
+                                                            <option value="4" selected>Linear scale</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="4">Linear scale</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <small class="error-question"></small>
+                                            </div>
+                                            <!-- Câu trả lời trắc nghiệm     -->
+                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 1
+                                                || Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 2)
+                                            {
+                                                <div class="answer answer-@qindex">
+                                                    <div class="answer-choice answer-choice-@qindex">
+                                                        @for (int k = 0; k < Model.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers.Count; k++)
+                                                        {
+
+                                                            if (Model.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].IsOtherChoice == false)
+                                                            {
+                                                                <div class="answer-list answer-list-@qindex">
+                                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].Status, new { @class = "choice-status", @Value = true })
+                                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].ID)
+                                                                    <div class="answer-list-choose">
+                                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 1)
+                                                                        {
+                                                                            <input type="radio" class="answer-list-choose_input-@qindex" name="radio_answer" disabled>
+                                                                        }
+                                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 2)
+                                                                        {
+                                                                            <input type="checkbox" class="answer-list-choose_input-@qindex" name="radio_answer" disabled>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="answer-list-content">
+                                                                        @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].Label, new { @class = "answer-list-content_input", @placeholder = "Option" })
+                                                                    </div>
+                                                                    <button type="button" class="btnAnswerDelete fa-solid fa-trash" onclick="removeAnswer(this)" title="Delete answer"></button>
+                                                                    <br />
+                                                                    <small></small>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    </div>
+                                                    <div class="answer-other answer-other-@qindex">
+                                                        @for (int k = 0; k < Model.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers.Count; k++)
+                                                        {
+                                                            if (Model.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].IsOtherChoice == true)
+                                                            {
+                                                                <div class="answer-list answer-list-@qindex">
+                                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].Status, new { @class = "other-status", @Value = true })
+                                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].ID)
+                                                                    <div class="answer-list-choose">
+                                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 1)
+                                                                        {
+                                                                            <input type="radio" class="answer-list-choose_input-@qindex" name="radio_answer" disabled>
+                                                                        }
+                                                                        @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 2)
+                                                                        {
+                                                                            <input type="checkbox" class="answer-list-choose_input-@qindex" name="radio_answer" disabled>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="answer-list-content">
+                                                                        @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].Label, new { @class = "answer-list-content_input", @placeholder = "Other...", @Value = "" })
+                                                                        @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].ChoiceAnswers[k.ToString()].IsOtherChoice, new { @class = "answer-list-content_check" })
+                                                                    </div>
+                                                                    <button type="button" class="btnAnswerDelete fa-solid fa-trash" onclick="removeChoiceOther(this,@qindex)" title="Delete other answer"></button>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    </div>
+                                                    <small class="required-answer"></small>
+                                                </div>
+
+                                            }
+                                            else
+                                            {
+                                                <div class="answer answer-@qindex" style="display: none;">
+                                                    <div class="answer-choice answer-choice-@qindex">
+
+                                                    </div>
+                                                    <div class="answer-other answer-other-@qindex">
+
+                                                    </div>
+                                                    <small class="required-answer"></small>
+                                                </div>
+                                            }
+                                            <!-- Câu trả lời ranking -->
+                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 4)
+                                            {
+                                                if (Model.Sections[i.ToString()].Questions[j.ToString()].OldLinearAnswers != null
+                                                    && Model.Sections[i.ToString()].Questions[j.ToString()].OldLinearAnswers.Count > 0)
+                                                {
+                                                    int id = 0;
+                                                    foreach (var item in Model.Sections[i.ToString()].Questions[j.ToString()].OldLinearAnswers)
+                                                    {
+
+                                                        @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].OldLinearAnswers[id].ID,
+                                                           new { Value = item.ID })
+                                                        id++;
+                                                    }
+                                                }
+                                                <div class="rank rank-@qindex" style="display: block;">
+                                                    <div class="rank-number">
+                                                        <select class="rank-number_first">
+                                                            <option value="1" selected>1</option>
+                                                        </select>
+                                                        <span class="rank-number_txt">to</span>
+                                                        <select name="number-rank-@qindex" class="rank-number_last" id="rank-number_last-@qindex" onchange="selectNumberLast(@qindex, @i, @j)">
+                                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers.Count == 2)
+                                                            {
+                                                                <option value="2" selected>2</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="2">2</option>
+                                                            }
+                                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers.Count == 3)
+                                                            {
+                                                                <option value="3" selected>3</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="3">3</option>
+                                                            }
+                                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers.Count == 4)
+                                                            {
+                                                                <option value="4" selected>4</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="4">4</option>
+                                                            }
+                                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers.Count == 5)
+                                                            {
+                                                                <option value="5" selected>5</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="5">5</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                    <div class="rank-content rank-content-@qindex">
+
+                                                        @for (int r = 0; r < Model.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers.Count; r++)
+                                                        {
+                                                            <div class="rank-content-number rank-content-number-@qindex">
+                                                                @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers[r].ID)
+                                                                <span class="rank-content-number_txt">@(r + 1)</span>
+                                                                @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers[r].ScaleNumber,
+                                                                new { @Value = @r + 1 })
+                                                                @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers[r].ScaleLabel,
+                                                                new { @class = "rank-content-number_input", @placeholder = "Label" })
+                                                                <small class="error-rank"></small>
+                                                            </div>
+
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="rank rank-@qindex" style="display: none;">
+                                                    <div class="rank-number">
+                                                        <select class="rank-number_first">
+                                                            <option value="1" selected>1</option>
+                                                        </select>
+                                                        <span class="rank-number_txt">to</span>
+                                                        <select name="number-rank-@qindex" class="rank-number_last" id="rank-number_last-@qindex" onchange="selectNumberLast(@qindex, @i, @j)">
+                                                            <option value="2" selected>2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="rank-content rank-content-@qindex">
+                                                        <div class="rank-content-number rank-content-number-@qindex">
+                                                            @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers[0].ID)
+                                                            <span class="rank-content-number_txt">1</span>
+                                                            <input type="hidden" name="Sections[@(i)].Questions[@(j)].LinearAnswers[0].ScaleNumber" value="1" />
+                                                            <input class="rank-content-number_input" name="Sections[@(i)].Questions[@(j)].LinearAnswers[0].ScaleLabel" placeholder="Label" />
+                                                            <small class="error-rank"></small>
+                                                        </div>
+                                                        <div class="rank-content-number rank-content-number-@qindex">
+                                                            @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].LinearAnswers[1].ID)
+                                                            <span class="rank-content-number_txt">2</span>
+                                                            <input type="hidden" name="Sections[@(i)].Questions[@(j)].LinearAnswers[1].ScaleNumber" value="2" />
+                                                            <input class="rank-content-number_input" name="Sections[@(i)].Questions[@(j)].LinearAnswers[1].ScaleLabel" placeholder="Label" />
+                                                            <small class="error-rank"></small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            <!-- /Câu trả lời ranking -->
+                                            <!-- Câu trả lời ngắn -->
+                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 3)
+                                            {
+                                                <div class="short short-@qindex" style="display: block;">
+                                                    <div class="short-content short-content-@qindex">
+                                                        @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.ID)
+                                                        @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.Label, new { @class = "short-content_input", @placeholder = "Short answer text", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="short short-@qindex" style="display: none;">
+
+                                                </div>
+                                            }
+
+                                            <!-- /Câu trả lời ngắn -->
+                                            <!-- Câu trả lời thêm -->
+                                            @if (Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 1 && Model.Sections[i.ToString()].Questions[j.ToString()].TextAnswer != null ||
+                                                Model.Sections[i.ToString()].Questions[j.ToString()].QuestionCategory.ID == 2 && Model.Sections[i.ToString()].Questions[j.ToString()].TextAnswer != null)
+                                            {
+                                                <div class="other other-@qindex" style="display: block;">
+                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.OldIdText, new { @Value = Model.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.ID })
+
+                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.ID)
+                                                    <div class="other-content other-content-@qindex">
+                                                        @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.Label,
+                                                             new { @class = "other-content_input", @placeholder = "Short answer text" })
+                                                        <button class="btnOtherDelete fa-solid fa-trash" type="button" onclick="removeOther(@qindex)" title="Delete text expand"></button>
+                                                        <div class="other-content-check-@qindex" style="display: block;">
+                                                            @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.Status, new { @class = "txt-status", @Value = "true" })
+                                                            @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.CheckTextChoice, new { @class = "other-content-check_txt" })
+                                                        </div>
+                                                    </div>
+                                                    <small class="error-expand"></small>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="other other-@qindex" style="display: none;">
+                                                    @Html.HiddenFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.ID)
+                                                    <div class="other-content other-content-@qindex">
+                                                        @Html.TextBoxFor(m => m.Sections[i.ToString()].Questions[j.ToString()].TextAnswer.Label,
+                                                             new { @class = "other-content_input", @placeholder = "Short answer text" })
+                                                        <button class="btnOtherDelete fa-solid fa-trash" type="button" onclick="removeOther(@qindex)" title="Delete text expand"></button>
+                                                    </div>
+                                                    <small class="error-expand"></small>
+                                                </div>
+                                            }
+
+                                            <!-- /Câu trả lời thêm -->
+                                            <div class="option-add">
+                                                <div class="add add-@qindex">
+                                                    <div class="add-answer">
+                                                        <div class="add-answer-option add-answer-option-@qindex">
+                                                            <span class="add-answer-option_choose" onclick="addAnswer(@qindex, @seindex, @j)">Add Option</span>
+                                                        </div>
+                                                        <div class="add-answer-choice add-answer-choice-@qindex">
+                                                            <span class="add-answer-choice_other" onclick="addChoiceOther(@qindex, @seindex, @j)">Add "Other"</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="add-answer-other add-answer-other-@qindex">
+                                                    <span class="add-answer-other_choose" onclick="addOther(@qindex, @seindex, @j)">Text expand</span>
+                                                </div>
+                                            </div>
+                                            <div class="icon-box">
+                                                <span class="checkbox-content">Required</span>
+                                                <div class="checkbox-a">
+                                                    @Html.EditorFor(m => m.Sections[i.ToString()].Questions[j.ToString()].IsRequire)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="option-box">
+                                            <div class="option-element">
+                                                <i class="fa-solid fa-plus" onclick="addQuestion(@quindex, @seindex, this,@totalQuestion)" title="Add question"></i>
+                                                <i class="fa-solid fa-trash" onclick="delQuestion(this)" title="Delete question"></i>
+                                                <i class="fa-solid fa-chevron-up ClickUP" aria-hidden="true" onclick="ChangePositionUP(this)" title="Move up question"></i>
+                                                <i class="fa-solid fa-chevron-down ClickDOWN" aria-hidden="true" onclick="ChangePositionDOWN(this)" title="Move down question"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    qindex++;
+                                }
+
+                            </div>
+                        </div>
+                        <div class="option-section">
+                            <div class="option-element">
+                                <i class="fa-solid fa-plus" onclick="addSection(this,@Model.Sections.Count,@totalQuestion)" title="Add section"></i>
+                                <i class="fa-solid fa-trash" onclick="delSection(this)" title="Delete section"></i>
+                                <i class="fa-solid fa-chevron-up ClickUP" aria-hidden="true" onclick="ChangePositionUP(this)" title="Move up section"></i>
+                                <i class="fa-solid fa-chevron-down ClickDOWN" aria-hidden="true" onclick="ChangePositionDOWN(this)" title="Move down section"></i>
+                            </div>
+                        </div>
+                    </div>
+                    quindex++;
+                    sindex++;
+                    seindex++;
+                }
+            </div>
+
+            //Import file hieumt
+            <div class="excel">
+                <div class="row col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="excel-title">
+                            <h5 class="excel-title_txt">Assign Student</h5>
+                        </div>
+                        <div class="excel-file">
+                            <input type="file" name="excelfile" id="upload" onchange="return fileValidation()" />
+                        </div>
+                        <div class="excel-content">
+                            <a class="excel-content_txt" id="link" download>Your file upload (upload a file first)</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="display: flex; /* float: right; */ align-content: space-around; justify-content: flex-end; align-items: center; flex-wrap: wrap">
+                        <b>Here is sample excel: </b>
+                        <a class="btn" style="border:1px solid black" href="@Url.Action("exportSampleExcel", "CreatorHome", new { area = "Creator" })">Sample Excel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-sm-12">
+                <div style="    margin-top: 1rem;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-left: 1rem
+    ">
+                    @if (ViewBag.survey_id != null)
+                    {
+                        <div class="excel-title">
+                            <b>Here is list Student assigned.</b>
+                        </div>
+                        <a class="btn" style="border:1px solid black" href="@Url.Action("exportExcel", "CreatorHome",new { area = "Creator" , id = ViewBag.survey_id})">Export Excel</a>
+                    }
+                </div>
+            </div>
+            <div class="row col-sm-12">
+                <button type="button" class="btn btn-primary" style="margin:40px 0" onclick="checkCreateTemplate('#myFormTemplate')">Submit</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title col-12">Clone Survey</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Do you want to submit survey?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="submitID" class="btn btn-success">Submit</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </main>
+
+    <script>
+        function fileValidation() {
+            var fileInput =
+                document.getElementById('upload');
+
+            var filePath = fileInput.value;
+
+            // Allowing file type
+            var allowedExtensions =
+                /(\.xls|\.xlsx)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            }
+        }
+
+        const input = document.getElementById('upload');
+        const link = document.getElementById('link');
+        let ok = '';
+        let objectURL;
+
+        input.addEventListener('change', function () {
+            console.log(input.value)
+            if (objectURL) {
+                // revoke the old object url to avoid using more memory than needed
+                URL.revokeObjectURL(objectURL);
+            }
+            if (input.value == '' || input.value == null) {
+                link.removeAttribute("href");
+                link.removeAttribute('download');
+                link.innerHTML = "Your file upload (upload a file first)";
+                return;
+            }
+
+            console.log(1);
+            const file = this.files[0];
+            ok = this.files[0];
+            objectURL = URL.createObjectURL(file);
+            link.innerHTML = input.value;
+            link.download = file.name; // this name is used when the user downloads the file
+            link.href = objectURL;
+        });
+
+    const link_assign = document.getElementById('link_assign');
+
+        @*$('#link_assign').click(function () {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("exportExcel", "CreatorHome",new { area = "Creator" })',
+                success: function (result) {
+                    console.log("export Excel success")
+                }
+            })
+        });*@
+
+
+        const inputImage = document.getElementById('upload_image');
+        const tempImage = document.getElementById('tempImage');
+        function fileImageValidation() {
+            tempImage.value = '';
+
+            var filePath = inputImage.value;
+            // Allowing file type
+            var allowedExtensions =
+                /(\.jpeg|\.jpg|\.png|\.jfif|\.pjpeg|\.pjp)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type (.jpeg .jpg .png .jfif .pjpeg .pjp)');
+                inputImage.value = '';
+                image.style.display = "none";
+                return false;
+            }
+        }
+
+        const image = document.getElementById('pre_img');
+        inputImage.addEventListener('change', (e) => {
+            if (inputImage.value.trim() == '' || inputImage.value == null) {
+                image.setAttribute("src", '');
+                image.style.display = "none";
+            }
+            if (e.target.files.length) {
+                const src = URL.createObjectURL(e.target.files[0]);
+                image.src = src;
+                image.style.display = "block";
+            }
+        });
+    </script>
+</div>

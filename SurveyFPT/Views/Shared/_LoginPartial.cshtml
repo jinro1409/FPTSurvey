@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@using SurveyFPT.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="~/Content/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body>
+    <header>
+        <div class="social-icons">
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <span class="social-icons_name">
+                        @HttpContext.Current.Session["Username"].ToString()
+                    </span>
+                    <div class="dropdown" style="cursor:pointer">
+                        <div class="dropdown-content">
+                            <ul style="margin:auto">
+                                <li><span>@User.Identity.Name</span></li>
+                                <li><span>Role: @HttpContext.Current.Session["role"].ToString().ToUpper()</span></li>
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()">Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </header>
+</body>
+</html>
+

@@ -1,0 +1,157 @@
+﻿
+
+@model SurveyFPT.DTO.SurveyCategoryDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_AdminPartial")
+<style>
+    .cus-input{
+        width:70%;
+        height:2rem;
+        float:left;
+    }
+</style>
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <main>
+        <h2 class="dash-title">Survey category</h2>
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="table-responsive">
+                       @if(ViewBag.messager != null)
+                       {
+                           <h1>@ViewBag.messager</h1>
+                       }
+                       <h4 id="messager"></h4>
+                        @using (Html.BeginForm("SaveSurveyCategory", "AdminHome", FormMethod.Post,new { area = "Admin", onsubmit= "return check()" }))
+                        {
+                        <table>
+                            @Html.HiddenFor(m => m.ID)
+                            <tr>
+                                <td class="col-sm-2">Name:</td>
+                                <td>
+                                    @*<input class="text" type="text" name="name" required="" value="@ViewBag.Name" /><br />*@
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "cus-input" , @required = "required",
+                                   @name ="name"
+                               })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2">Description:</td>
+                                <td>
+                                    @Html.TextBoxFor(m => m.Description, new { @class = "cus-input", @required = "required" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2">Prefix:</td>
+                                <td>
+                                    @Html.TextBoxFor(m => m.Prefix, new { @class = "cus-input", @required = "required" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2">Active:</td>
+                                <td style>
+                                    @Html.CheckBoxFor(m => m.Status, new { @class = "cus-input" })
+                                </td>
+                            </tr>
+                            
+                            @*@if ( Model.ID >0)
+                            {
+                                <tr>
+                                    <td class="col-sm-2">Date create</td>
+                                    <td class="cus-input">
+                                        @Model.CreatedAt
+                                    </td>
+                                </tr>
+                            }
+                                @if (Model.UpdatedAt != null)
+                                {
+                                    <tr>
+                                        <td class="col-sm-2">Date update</td>
+                                        <td class="cus-input">
+                                            @Model.UpdatedAt
+                                        </td>
+                                    </tr>
+                                }*@
+                                <tr>
+                                    <td colspan="3">
+                                        <input class="btn btn-success" type="submit" value="Submit" id="btnSave">
+
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        }
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+
+        function check() {
+            try {
+                console.log("1");
+                const messager = document.getElementById("messager");
+                const name = document.getElementById("Name");
+                const description = document.getElementById("Description");
+                const prefix = document.getElementById("Prefix");
+                var name_value = name.value.trim();
+                var description_value = description.value.trim();
+                var prefix_value = prefix.value.trim();
+                if (name_value == "" || name_value == null) {
+                    name.focus();
+                    messager.innerHTML = "Fill name please!";
+                    messager.style.color = "red";
+                    name.value = "";
+                    return false;
+                }
+                if (name_value.length > 20) {
+                    name.focus();
+                    messager.innerHTML = "Name less than or equal 20 characters!";
+                    messager.style.color = "red";
+                    name.value = name.value.trim();
+                    return false;
+                }
+                if (description_value == "" || description_value == null) {
+                    description.focus();
+                    messager.innerHTML = "Fill description please!";
+                    messager.style.color = "red";
+                    description.value = "";
+                    return false;
+                }
+                if (description_value.length > 300) {
+                    description.focus();
+                    messager.innerHTML = "Description less than or equal 300 characters!";
+                    messager.style.color = "red";
+                    description.value = description.value.trim();
+                    return false;
+                }
+                if (prefix_value == "" || prefix_value == null) {
+                    prefix.focus();
+                    messager.innerHTML = "Fill prefix please!";
+                    messager.style.color = "red";
+                    prefix.value = "";
+                    return false;
+                }
+                if (!/^[A-Za-z0-9]{3}$/.test(prefix_value)) {
+                    console.log('not match');
+                    prefix.focus();
+                    messager.innerHTML = "Input 3 characters please!";
+                    messager.style.color = "red";
+                    return false;
+                }
+                return true;
+            } catch (err) {
+                console.log(err);
+                return false;
+            }
+           
+        }
+    </script>
+</div>

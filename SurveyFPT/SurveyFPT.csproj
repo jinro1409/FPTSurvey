@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE8342A4-0DB7-46E9-9F0F-65E9BDD2DB87}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SurveyFPT</RootNamespace>
+    <AssemblyName>SurveyFPT</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44311</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grpc.Core.2.46.3\lib\net45\Grpc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core.Api, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grpc.Core.Api.2.46.3\lib\net45\Grpc.Core.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.7.30.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.7.30\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.7.30.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.7.30\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentor.OwinCookieSaver.Two, Version=1.1.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kentor.OwinCookieSaver.Two.1.1.2\lib\net45\Kentor.OwinCookieSaver.Two.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.2.2\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.2.2\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.2.2\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SD.Tools.LinqToSQL2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\SD.Tools.LinqToSQL2.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.9\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.9\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminAuthorize.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Creator\Controllers\CreatorHomeController.cs" />
+    <Compile Include="Areas\Creator\CreatorAreaRegistration.cs" />
+    <Compile Include="Areas\Result\Controllers\ResultHomeController.cs" />
+    <Compile Include="Areas\Result\ResultAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\DefaultController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="DAL\AssignedStudentDAO.cs" />
+    <Compile Include="DAL\ChoiceAnswerDAO.cs" />
+    <Compile Include="DAL\DAO.cs" />
+    <Compile Include="DAL\LinearScaleAnswerDAO.cs" />
+    <Compile Include="DAL\QuestionCategoryDAO.cs" />
+    <Compile Include="DAL\QuestionDAO.cs" />
+    <Compile Include="DAL\ResponesedTextAnswerDAO.cs" />
+    <Compile Include="DAL\ResponsedChoiceAnswerDAO.cs" />
+    <Compile Include="DAL\ResponsedLinearScaleDAO.cs" />
+    <Compile Include="DAL\ResponsedSurveyDAO.cs" />
+    <Compile Include="DAL\ResponsedIsOtherChoiceAnswerDAO.cs" />
+    <Compile Include="DAL\RoleDAO\RoleDAO.cs" />
+    <Compile Include="DAL\SectionDAO.cs" />
+    <Compile Include="DAL\SurveyCategoryDAO.cs" />
+    <Compile Include="DAL\SurveyDAO\SurveyDAO.cs" />
+    <Compile Include="DAL\SurveyResponeseDAO.cs" />
+    <Compile Include="DAL\TextAnswerDAO.cs" />
+    <Compile Include="DAL\UserDAO\UserDAO.cs" />
+    <Compile Include="Data\DbContext.cs" />
+    <Compile Include="DTO\OutPutDTO\AssignedRequireSurveyDTO.cs" />
+    <Compile Include="DTO\Responsed\ExportDataDTO.cs" />
+    <Compile Include="DTO\Responsed\QuestionAnswerDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedAnswerDTO.cs" />
+    <Compile Include="DTO\Responsed\SurveyResultSumaryDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\Chart.cs" />
+    <Compile Include="DTO\InputDTO\ChoiceCreateDTO.cs" />
+    <Compile Include="DTO\InputDTO\LinearScaleCreateDTO.cs" />
+    <Compile Include="DTO\InputDTO\QuestionCreateDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponsedLinearScaleUpdateDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponsedSingleChoiceUpdateDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponsedSurveyUpdateDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponsedMultipleChoiceUpdateDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponsedTextUpdateDTO.cs" />
+    <Compile Include="DTO\InputDTO\SectionCreateDTO.cs" />
+    <Compile Include="DTO\InputDTO\SurveyCreateDTO.cs" />
+    <Compile Include="DTO\InputDTO\TextAnswerCreateDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\AssignedStudentDTO.cs" />
+    <Compile Include="DTO\BaseDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\ChoiceAnswerDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\LinearAnswerDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\QuestionCategoryDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\QuestionDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponseSurveyDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponseChoiceAnswerDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponseIsOtherChoiceDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponseLinearScaleAnswerDTO.cs" />
+    <Compile Include="DTO\InputDTO\ResponseTextAnswerDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\RoleDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\SectionDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\SurveyCategoryDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\SurveyDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\TextAnswerDTO.cs" />
+    <Compile Include="DTO\OutPutDTO\UserDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedIsOtherChoiceDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedTextDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedChoiceAnwerDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedLinearScaleAnswerDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedSurveyDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedQuestionDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedSectionDTO.cs" />
+    <Compile Include="DTO\Responsed\ResponsedTextAnswerDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\ChoiceStatisticDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\LinearScaleStatisticDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\OtherChoiceStatisticDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\QuestionStatisticDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\SectionStatisticDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\SurveyStatisticDTO.cs" />
+    <Compile Include="DTO\StatisticDTO\TextStatisticDTO.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ChoiceAnswerMapper.cs" />
+    <Compile Include="Mapper\LinearScaleAnswerMapper.cs" />
+    <Compile Include="Mapper\LinearScaleMapper.cs" />
+    <Compile Include="Mapper\QuestionCategoryMapper.cs" />
+    <Compile Include="Mapper\QuestionMapper.cs" />
+    <Compile Include="Mapper\ReponseChoiceMapper.cs" />
+    <Compile Include="Mapper\ResponsedSurveyMapper.cs" />
+    <Compile Include="Mapper\RoleMapper.cs" />
+    <Compile Include="Mapper\SectionMapper.cs" />
+    <Compile Include="Mapper\SurveyCategoryMapper.cs" />
+    <Compile Include="Mapper\SurveyMapper.cs" />
+    <Compile Include="Mapper\TextAnswerMapper.cs" />
+    <Compile Include="Mapper\TextResponseMapper.cs" />
+    <Compile Include="Mapper\UserMapper.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AssignedStudent.cs" />
+    <Compile Include="Models\AssignStudentBulkModel.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\ChoiceAnswer.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LinearScaleAnswer.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionCategory.cs" />
+    <Compile Include="Models\ResponsedChoiceAnswer.cs" />
+    <Compile Include="Models\ResponsedTextAnswer.cs" />
+    <Compile Include="Models\ResponsedIsOtherChoiceAnswer.cs" />
+    <Compile Include="Models\ResponsedLinearScaleAnswer.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Survey.cs" />
+    <Compile Include="Models\SurveyCategory.cs" />
+    <Compile Include="Models\SurveyResponse.cs" />
+    <Compile Include="Models\TextAnswer.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AssignStudentService.cs" />
+    <Compile Include="Service\ChartService.cs" />
+    <Compile Include="Service\ChoiceService.cs" />
+    <Compile Include="Service\FileService.cs" />
+    <Compile Include="Service\ImageService.cs" />
+    <Compile Include="Service\LinearScaleService.cs" />
+    <Compile Include="Service\SectionService.cs" />
+    <Compile Include="Service\SurveyCategoryService.cs" />
+    <Compile Include="Service\QuestionServices.cs" />
+    <Compile Include="Service\SurveyService.cs" />
+    <Compile Include="Service\AnswerService.cs" />
+    <Compile Include="Service\TextAnswerService.cs" />
+    <Compile Include="Service\UserService.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Css\Creator\createform.css" />
+    <Content Include="Content\Css\error404.css" />
+    <Content Include="Content\Css\error500.css" />
+    <Content Include="Content\Css\Result\result.css" />
+    <Content Include="Content\Css\Survey\error.css" />
+    <Content Include="Content\Css\Creator\style.css" />
+    <Content Include="Content\Css\Survey\survey.css" />
+    <Content Include="Content\Css\Survey\timeup.css" />
+    <Content Include="Content\Img\Create_img.png" />
+    <Content Include="Content\Img\Form_img_1.png" />
+    <Content Include="Content\Img\Form_img_2.png" />
+    <Content Include="Content\Img\Form_img_3.png" />
+    <Content Include="Content\Img\Form_img_4.png" />
+    <Content Include="Content\Img\google_icon.ico" />
+    <Content Include="Content\Img\HCM-scaled.png" />
+    <Content Include="Content\Img\login_img.jpg" />
+    <Content Include="Content\Img\Logo_img.png" />
+    <Content Include="Content\Img\User_icon_2.svg.png" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\layoutContent.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themify-icons.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\themify.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Libs\SD.Tools.LinqToSQL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\SD.Tools.LinqToSQL2.pdb" />
+    <Content Include="Libs\System.Data.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\System.Data.SqlClient.dll" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="Areas\Creator\Views\web.config" />
+    <Content Include="Areas\Creator\Views\CreatorHome\Index.cshtml" />
+    <Content Include="fonts\themify.eot" />
+    <Content Include="fonts\themify.ttf" />
+    <Content Include="fonts\themify.woff" />
+    <Content Include="Areas\Admin\Views\AdminHome\ManagerUser.cshtml" />
+    <Content Include="Areas\Creator\Views\CreatorHome\CreateForm.cshtml" />
+    <Content Include="Areas\Creator\Views\CreatorHome\ManagerForm.cshtml" />
+    <Content Include="Areas\Result\Views\web.config" />
+    <Content Include="Areas\Result\Views\ResultHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\ListSurveyCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\DetailSurveyCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\DetailUser.cshtml" />
+    <Content Include="Areas\Creator\Views\CreatorHome\EditForm.cshtml" />
+    <Content Include="Areas\Creator\Views\CreatorHome\Success.cshtml" />
+    <Content Include="Areas\Result\Views\ResultHome\Read.cshtml" />
+    <Content Include="Areas\Result\Views\ResultHome\Individual.cshtml" />
+    <Content Include="Areas\Creator\Views\CreatorHome\CreateTemplate.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\CreateSurvey\Createsurvey.js" />
+    <Content Include="Scripts\CreateSurvey\createtemplate.js" />
+    <Content Include="Scripts\CreateSurvey\editsurvey.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Result\index.js" />
+    <Content Include="Scripts\Survey\index.js" />
+    <Content Include="Scripts\Survey\updatesurvey.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Home\UnAuthorized.cshtml" />
+    <Content Include="Views\Shared\_UserPartial.cshtml" />
+    <Content Include="Views\Shared\_AdminPartial.cshtml" />
+    <Content Include="Views\Shared\_CreaterPartial.cshtml" />
+    <Content Include="Views\Shared\_UnauthorizedPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_ResultPartial.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\Update.cshtml" />
+    <Content Include="Views\Survey\Success.cshtml" />
+    <Content Include="Views\Shared\Error404.cshtml" />
+    <Content Include="Views\Shared\Error500.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Shared\HtmlEmailTemplate.html" />
+    <Content Include="Views\Shared\TimeOut.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Creator\Data\" />
+    <Folder Include="Areas\Creator\Views\Shared\" />
+    <Folder Include="Areas\Result\Data\" />
+    <Folder Include="Areas\Result\Views\Shared\" />
+    <Folder Include="Content\Img\SurveyImage\" />
+    <Folder Include="DAL\Statistics\" />
+    <Folder Include="DTO\Charts\" />
+    <Folder Include="Scripts\FillSurvey\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64151</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44313/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Grpc.Core.2.46.3\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.2.46.3\build\net45\Grpc.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\Grpc.Core.2.46.3\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.46.3\build\net45\Grpc.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

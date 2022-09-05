@@ -1,0 +1,776 @@
+﻿@model SurveyFPT.DTO.StatisticDTO.SurveyStatisticDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section csssurvey{
+    <link href="~/Content/Css/Result/result.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js"
+            integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+}
+@section creatorsurvey{
+    <script src="~/Scripts/Result/index.js"></script>
+}
+@Html.Partial("_ResultPartial")
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <main>
+        <h1>Survey result</h1>
+        <!-- Result screen -->
+        <div class="container">
+            <div class="header-result">
+                <div class="header-result-name">
+                    <h2>@Model.Name</h2>
+                </div>
+                <h3 class="number-student-answer">@Model.Count Response(s)</h3>    
+                <div class="header-option">
+                    <button class="btn-option" onclick="openOption('chart')">Chart</button>
+                    <button class="btn-option" onclick="openOption('question')">Question</button>
+                    <button class="btn-option" onclick="openOption('student')">Students</button>
+                </div>
+
+            </div>
+
+            <div class="body-result">
+                <!-- chart -->
+                <div id="chart" class="container option-result p-0" style="display:none">
+                    @foreach (var sec in Model.Sections)
+                    {
+                        <div class="section-chart">
+                            <div class="section-chart-header">
+                                <div class="section-chart-title"><h3>@sec.Name</h3></div>
+                                <div class="section-chart-description"><label>@sec.Description</label></div>
+                            </div>
+                            @if (sec.Questions != null)
+                            {
+                                foreach (var ques in sec.Questions)
+                                {
+                                    <!-- text-result -->
+                                    <div class="question-text">
+                                        <label class="question-content">@ques.Questions</label>
+                                        @switch (ques.QuestionCatagory)
+                                        {
+                                            case 1:
+                                                if (ques.ChoiceStatistics != null)
+                                                {
+                                                    <div class="form-chart">
+                                                        <div class="chartBox" style="min-width:600px">
+                                                            <canvas class="myChart" id="myChart"></canvas>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                @*else
+                                                {
+                                                    <label>No Answer</label>
+                                                }*@
+                                                break;
+                                            case 2:
+                                                if (ques.ChoiceStatistics != null)
+                                                {
+                                                    <div class="form-chart">
+                                                        <div class="chartBox" style="min-width:600px">
+                                                            <canvas class="myChart" id="myChart"></canvas>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                @*else
+                                                {
+                                                    <label>No Answer</label>
+                                                }*@
+                                                break;
+                                            case 3:
+                                                if (ques.TextStatistics.Item2 != null)
+                                                {
+                                                    <div class="answer-box">
+                                                        @foreach (var listtext in ques.TextStatistics.Item2)
+                                                        {
+                                                            <div class="text-answer-group">
+                                                                <div class="answer col-10">
+                                                                    <label>@listtext.Response</label>
+                                                                </div>
+                                                                <div class="number-text-answer col-2">@listtext.ResponseCount Response(s)</div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <label>No Answer</label>
+                                                }
+                                                break;
+                                            case 4:
+                                                if (ques.LinearScaleStatistics != null)
+                                                {
+                                                    <div class="form-chart">
+                                                        <div class="chartBox" style="min-width:600px">
+                                                            <canvas class="myChart" id="myChart"></canvas>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                @*else
+                                                {
+                                                    <label>No Answer</label>
+                                                }*@
+                                                break;
+                                        }
+                                        @if (ques.TextStatistics.Item2 != null && ques.QuestionCatagory != 3)
+                                        {
+                                            <div class="answer-box">
+                                                @if (ques.TextStatistics.Item2.Count == 1 && ques.TextStatistics.Item2.First().ResponseCount == 0)
+                                                {
+                                                    <label>No have answer text</label>
+                                                }
+                                                else
+                                                {
+                                                    <div class="button-radio-answer">
+                                                        <div class="radio-group">
+                                                            <div class="col-9">
+                                                                <details>
+                                                                    <summary class="button-more">Text Expand</summary>
+                                                                    <div class="text-bonus">
+                                                                        @foreach (var list in ques.TextStatistics.Item2)
+                                                                        {
+                                                                            <div class="text-answer-group">
+                                                                                <div class="answer col-9">
+                                                                                    <label class="answer-element-radio">@list.Response</label>
+                                                                                </div>
+                                                                                <div class="number-text-answer col-3">@list.ResponseCount Response(s)</div>
+                                                                            </div>
+                                                                        }
+                                                                    </div>
+                                                                </details>
+                                                            </div>
+                                                            <div class="col-1">
+                                                            </div>
+                                                            <div class="number-answer-radio col-2">@ques.TextStatistics.Item2.Count Response(s)</div>
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                    }
+                </div>
+                <!-- /chart -->
+                <!-- Question -->
+                <div id="question" class="container option-result p-0 mt-4">
+                    @foreach (var sec in Model.Sections)
+                    {
+                        <div class="section-result">
+                            <div class="section-result-header">
+                                <div class="section-result-title">
+                                    <h3>@sec.Name</h3>
+                                </div>
+                                <div class="section-result-description">
+                                    <label>@sec.Description</label>
+                                </div>
+                            </div>
+                            @if (sec.Questions != null)
+                            {
+                                foreach (var ques in sec.Questions)
+                                {
+                                    <div class="type-answer-box">
+                                        <div class="type-answer-box-title">
+                                            <label class="type-answer-box-title_txt">@ques.Questions</label>
+                                        </div>
+                                        @switch (ques.QuestionCatagory)
+                                        {
+                                            case 1:
+                                                if (ques.ChoiceStatistics != null)
+                                                {
+                                                    <div class="answer-box">
+                                                        @foreach (var item in ques.ChoiceStatistics)
+                                                        {
+                                                            <!-- Câu có option -->
+                                                            if (item.IsOtherChoice && item.OtherChoiceStatistics != null)
+                                                            {
+                                                                <div class="button-radio-answer">
+                                                                    <div class="radio-group">
+                                                                        <div class="col-1">
+                                                                            <input class="radio-button-result" type="radio" checked disabled>
+                                                                        </div>
+                                                                        <div class="col-9 p-0">
+                                                                            <details>
+                                                                                <summary>Others</summary>
+                                                                                @foreach (var other in item.OtherChoiceStatistics)
+                                                                                {
+                                                                                    <div class="text-answer-group">
+                                                                                        <div class="answer col-9">
+                                                                                            <label class="answer-element-radio">@other.Response</label>
+                                                                                        </div>
+                                                                                        <div class="number-text-answer col-3">@other.ResponseCount Response(s)</div>
+                                                                                    </div>
+                                                                                }
+
+                                                                            </details>
+                                                                        </div>
+                                                                        <div class="number-answer-radio col-2">@item.OtherChoiceStatistics.Count Response(s)</div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="button-radio-answer">
+                                                                    <div class="radio-group">
+                                                                        <div class="col-1">
+                                                                            <input class="radio-button-result" type="radio" checked disabled>
+                                                                        </div>
+                                                                        <div class="col-9 p-0">
+                                                                            <label>@item.Label</label>
+                                                                        </div>
+
+                                                                        <div class="number-answer-radio col-2">@item.Count Response(s)</div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }
+                                                        <hr>
+
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <h5>No Answer</h5>
+                                                }
+                                                break;
+                                            case 2:
+                                                if (ques.ChoiceStatistics != null)
+                                                {
+                                                    <div class="answer-box">
+                                                        @foreach (var item in ques.ChoiceStatistics)
+                                                        {
+                                                            <!-- Câu có option -->
+                                                            if (item.IsOtherChoice && item.OtherChoiceStatistics != null)
+                                                            {
+                                                                <div class="button-radio-answer">
+                                                                    <div class="radio-group">
+                                                                        <div class="col-1">
+                                                                            <input class="radio-button-result" type="checkbox" checked disabled>
+                                                                        </div>
+                                                                        <div class="col-9 p-0">
+                                                                            <details>
+                                                                                <summary>Others</summary>
+                                                                                @foreach (var other in item.OtherChoiceStatistics)
+                                                                                {
+                                                                                    <div class="text-answer-group">
+                                                                                        <div class="answer col-9">
+                                                                                            <label class="answer-element-radio">@other.Response</label>
+                                                                                        </div>
+                                                                                        <div class="number-text-answer col-3">@other.ResponseCount Response(s)</div>
+                                                                                    </div>
+                                                                                }
+
+                                                                            </details>
+                                                                        </div>
+                                                                        <div class="number-answer-radio col-2">@item.OtherChoiceStatistics.Count Response(s)</div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="button-radio-answer">
+                                                                    <div class="radio-group">
+                                                                        <div class="col-1">
+                                                                            <input class="radio-button-result" type="checkbox" checked disabled>
+                                                                        </div>
+                                                                        <div class="col-9 p-0">
+                                                                            <label>@item.Label</label>
+                                                                        </div>
+
+                                                                        <div class="number-answer-radio col-2">@item.Count Response(s)</div>
+                                                                    </div>
+
+                                                                </div>
+                                                            }
+                                                        }
+                                                        <hr>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <h5>No Answer</h5>
+                                                }
+                                                break;
+                                            case 3:
+                                                if (ques.TextStatistics.Item2 != null)
+                                                {
+                                                    <div class="answer-box">
+                                                        @foreach (var listtext in ques.TextStatistics.Item2)
+                                                        {
+                                                            <div class="text-answer-group">
+                                                                <div class="answer col-10">
+                                                                    <label>@listtext.Response</label>
+                                                                </div>
+                                                                <div class="number-text-answer col-2">@listtext.ResponseCount Response(s)</div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <h5>No Answer</h5>
+                                                }
+                                                break;
+                                            case 4:
+                                                if (ques.LinearScaleStatistics != null)
+                                                {
+                                                    <div class="answer-box">
+                                                        <div class="button-radio-answer">
+                                                            @for (int i = 0; i < @ques.LinearScaleStatistics.Count; i++)
+                                                            {
+                                                                <div class="radio-group">
+                                                                    <div class="col-1">
+                                                                        <input class="radio-button-result" type="radio" checked disabled>
+                                                                    </div>
+                                                                    <div class="col-1" style="padding-left: 0px;">
+                                                                        <label>@(i + 1)</label>
+                                                                    </div>
+                                                                    <div class="col-8 p-0">
+                                                                        <label class="answer-element-level">@ques.LinearScaleStatistics[i].ScaleLabel</label>
+                                                                    </div>
+                                                                    <div class="number-answer-radio col-2">@ques.LinearScaleStatistics[i].Count Response(s)</div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <h5>No Answer</h5>
+                                                }
+                                                break;
+
+                                        }
+                                        @if (ques.TextStatistics.Item2 != null && ques.QuestionCatagory != 3)
+                                        {
+                                            <div class="answer-box">
+                                                @if (ques.TextStatistics.Item2.Count == 1 && ques.TextStatistics.Item2.First().ResponseCount == 0)
+                                                {
+                                                    <label>No have answer text</label>
+                                                }
+                                                else
+                                                {
+                                                    <div class="button-radio-answer">
+                                                        <div class="radio-group">
+                                                            <div class="col-9">
+                                                                <details>
+                                                                    <summary class="button-more">Text Expand</summary>
+                                                                    <div class="text-bonus">
+                                                                        @foreach (var list in ques.TextStatistics.Item2)
+                                                                        {
+                                                                            <div class="text-answer-group">
+                                                                                <div class="answer col-9">
+                                                                                    <label class="answer-element-radio">@list.Response</label>
+                                                                                </div>
+                                                                                <div class="number-text-answer col-3">@list.ResponseCount Response(s)</div>
+                                                                            </div>
+                                                                        }
+                                                                    </div>
+                                                                </details>
+                                                            </div>
+                                                            <div class="col-1">
+                                                            </div>
+                                                            <div class="number-answer-radio col-2">@ques.TextStatistics.Item2.Count Response(s)</div>
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <!-- select -->
+                    }
+                </div>
+
+
+                <!-- student -->
+                <div id="student" class="container option-result p-0" style="display:none">
+                    <section class="recent">
+                        <div class="activity-grid">
+                            <div class="activity-card">
+                                <a class="btn" style="border:1px solid black" href="@Url.Action("ExportExcel", "ResultHome",new { area = "Result" , id =Model.ID})">Export Excel</a>
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Date</th>
+                                                <th>View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var listStudent in Model.Response)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @listStudent.Email
+                                                    </td>
+                                                    <td>
+                                                        @listStudent.CreatedAt
+                                                    </td>
+
+                                                    <td>
+                                                        <a href="@Url.Action("Individual", "ResultHome",new { area = "Result" })?id=@listStudent.ID">
+                                                            <i class="fa-solid fa-eye">
+
+                                                            </i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script>
+    var chartDatas = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Charts));
+    let getBackGround = [
+        "rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255,51,51,0.2)",
+        "rgba(255,153,51,0.2)", "rgba(255,255,51,0.2)", "rgba(153,255,51,0.2)", "rgba(51,255,51,0.2)", "rgba(51,255,51,0.2)", "rgba(51,255,153,0.2)", "rgba(51,255,255,0.2)", "rgba(51,153,255,0.2)",
+        "rgba(51,51,255,0.2)", "rgba(153,51,255,0.2)", "rgba(255,51,255,0.2)", "rgba(255,51,153,0.2)", "rgba(160,160,160,0.2)", "rgba(255,102,102,0.2)", "rgba(255,178,102,0.2)", "rgba(255,255,102,0.2)",
+        "rgba(178,255,102,0.2)", "rgba(102,255,102,0.2)", "rgba(102,255,178,0.2)", "rgba(102,255,255,0.2)", "rgba(102,178,255,0.2)", "rgba(102,102,255,0.2)", "rgba(178,102,255,0.2)",
+        "rgba(255,102,255,0.2)", "rgba(255,102,178,0.2)", "rgba(192,192,192,0.2)", "rgba(255,153,153,0.2)", "rgba(255,204,153,0.2)", "rgba(255,255,153,0.2)", "rgba(204,255,153,0.2)","rgba(153,255,204,0.2)",
+    ];
+    let getBorderColor = [
+        "rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)", "rgba(255, 159, 64, 1)", "rgba(255,51,51,1)",
+        "rgba(255,153,51,1)", "rgba(255,255,51,1)", "rgba(153,255,51,1)", "rgba(51,255,51,1)", "rgba(51,255,51,1)", "rgba(51,255,153,1)", "rgba(51,255,255,1)", "rgba(51,153,255,1)",
+        "rgba(51,51,255,1)", "rgba(153,51,255,1)", "rgba(255,51,255,1)", "rgba(255,51,153,1)", "rgba(160,160,160,1)", "rgba(255,102,102,1)", "rgba(255,178,102,1)", "rgba(255,255,102,1)",
+        "rgba(178,255,102,1)", "rgba(102,255,102,1)", "rgba(102,255,178,1)", "rgba(102,255,255,1)", "rgba(102,178,255,1)", "rgba(102,102,255,1)", "rgba(178,102,255,1)",
+        "rgba(255,102,255,1)", "rgba(255,102,178,1)", "rgba(192,192,192,1)", "rgba(255,153,153,1)", "rgba(255,204,153,1)", "rgba(255,255,153,1)", "rgba(204,255,153,1)", "rgba(153,255,204,1)",
+    ];
+    //set up
+    let listData = document.querySelectorAll('.myChart');
+
+    for (let i = 0; i < listData.length; i++) {
+        let dataLabel = chartDatas[i].Labels;
+        let dataCount = chartDatas[i].Counts;
+        var ctx = listData[i];
+        const moveChart = {
+            id: 'moveChart',
+            afterEvent(chart, args) {
+                const { ctx, canvas, chartArea: { left, right, top, bottom, width, height } } = chart;
+                canvas.addEventListener('mousemove', (event) => {
+                    const x = args.event.x;
+                    const y = args.event.y;
+
+                    if (x >= left - 15 && x <= left + 15 && y >= height / 2 + top - 15 && y <= height / 2 + top + 15) {
+                        canvas.style.cursor = 'pointer';
+                    } else if (x >= right - 15 && x <= right + 15 && y >= height / 2 + top - 15 && y <= height / 2 + top + 15) {
+                        canvas.style.cursor = 'pointer';
+                    }
+                    else {
+                        canvas.style.cursor = 'default';
+                    }
+                })
+            },
+
+            afterDraw(chart, arg, pluginOptions) {
+                const { ctx, chartArea: { left, right, top, bottom, width, height } } = chart;
+
+                class CircleChevron {
+                    // constructor(x1,y1){
+                    // }
+                    draw(ctx, x1, pixel) {
+                        const angle = Math.PI / 180;
+                        ctx.beginPath();
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = 'rgba(102,102,102,0.5)';
+                        ctx.fillStyle = 'white';
+                        ctx.arc(x1, height / 2 + top, 15, angle * 0, angle * 360, false);
+                        ctx.stroke();
+                        ctx.fill();
+                        ctx.closePath();
+
+                        // chevron Arrow Left
+                        ctx.beginPath();
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = '#1D2231';
+                        ctx.moveTo(x1 + pixel, height / 2 + top - 7.5);
+                        ctx.lineTo(x1 - pixel, height / 2 + top);
+                        ctx.lineTo(x1 + pixel, height / 2 + top + 7.5);
+                        ctx.stroke();
+                        ctx.closePath();
+                    }
+                }
+
+                let drawCircleLeft = new CircleChevron();
+                drawCircleLeft.draw(ctx, left, 4);
+
+                let drawCircleRight = new CircleChevron();
+                drawCircleLeft.draw(ctx, right, -4);
+
+
+                
+            }
+        }
+        const data = {
+            labels: dataLabel,
+            datasets: [
+                {
+                    label: "Votes",
+                    data: dataCount,
+                    backgroundColor: getBackGround,
+                    borderColor: getBorderColor,
+                    borderWidth: 1,
+                    barPercentage: 0.5,
+                    categoryPercentage: 1,
+                    maxBarThickness:30
+                },
+            ],
+        };
+        var configs = {
+            2: {
+                type: "bar",
+                data : data,
+                options: {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            right: 18,
+                            bottom: 30
+                        }
+                    },
+                    scales: {
+                        x: {
+                            min: 0,
+                            max: 6,
+                            ticks: {
+                                callback: function (value) {
+                                    let countWord = this.getLabelForValue(value).trim().length;
+                                    
+                                    if (countWord <= 8) {
+                                        return this.getLabelForValue(value);
+                                    } else {
+                                        return this.getLabelForValue(value).substr(0, 6)+'...';
+                                    }
+                                    
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                        },
+
+                    },
+                    plugins: {
+                        tooltip: {
+                            enable: false,
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    let sum = 0;
+                                    for (let i = 0; i < data['datasets'][0]['data'].length; i++) {
+                                        sum = sum + data['datasets'][0]['data'][i];
+                                    }
+                                    return data['labels'][tooltipItem['dataIndex']] + ': ' + data['datasets'][0]['data'][tooltipItem['dataIndex']] +
+                                        "(" + ((data['datasets'][0]['data'][tooltipItem['dataIndex']] / sum) * 100).toFixed(1) + '%' + ")";
+                                }
+                            }
+                        },
+                        legend: {
+                            display: false,
+                        },
+                        datalabels: {
+                            formatter: function (value, context) {
+                                const datapoints = context.chart.data.datasets[0].data;
+                                function totalSum(total, datapoint) {
+                                    return total + datapoint;
+                                }
+                                const totalPercentage = datapoints.reduce(totalSum, 0);
+                                const result = ((value / totalPercentage) * 100).toFixed(1);
+                                if (result > 0) {
+                                    return result + "%";
+                                } else {
+                                    return '';
+                                }
+                               
+                            },
+                        },
+                    },
+                },
+                plugins: [ChartDataLabels, moveChart],
+            },
+            4: {
+                type: "bar",
+                data: data,
+                options: {
+                    maintainAspectRatio: false,
+                    indexAxis: "y",
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    let countWord = this.getLabelForValue(value).trim().length;
+                                    if (countWord <= 12) {
+                                        return this.getLabelForValue(value);
+                                    } else {
+                                        return this.getLabelForValue(value).substr(0, 10) + '...';
+                                    }
+
+                                }
+                            }
+                        },
+
+                       
+                    },
+                    
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        datalabels: {
+                            formatter: function (value, context) {
+                                const datapoints = context.chart.data.datasets[0].data;
+                                let totalPoint = 0;
+                                for (let i = 0; i < datapoints.length; i++) {
+                                    totalPoint = totalPoint + (datapoints[i] * (i + 1));
+                                }
+                                const result = ((value * (context.dataIndex + 1)) / totalPoint).toFixed(2);
+                                if (result > 0) {
+                                    return result;
+                                } else {
+                                    return '';
+                                }
+                            },
+                        },
+                    },
+                },
+                plugins: [ChartDataLabels],
+            },
+            1: {
+                type: "pie",
+                data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    
+                    plugins: {
+                        tooltip: {
+                            enable: false,
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    let sum = 0;
+                                    for (let i = 0; i < data['datasets'][0]['data'].length; i++) {
+                                        sum = sum + data['datasets'][0]['data'][i];
+                                    }
+                                    return data['labels'][tooltipItem['dataIndex']] + ': ' + data['datasets'][0]['data'][tooltipItem['dataIndex']] +
+                                        "(" + ((data['datasets'][0]['data'][tooltipItem['dataIndex']] / sum) * 100).toFixed(1) + '%' + ")";
+                                }
+                            }
+                        },
+
+                        datalabels: {
+                            align: "center",
+                            formatter: (value, context) => {
+                                const datapoints = context.chart.data.datasets[0].data;
+                                function totalSum(total, datapoint) {
+                                    return total + datapoint;
+                                }
+                                const totalPercentage = datapoints.reduce(totalSum, 0);
+                                const result = ((value / totalPercentage) * 100).toFixed(1);
+                                if (result >= 5) {
+                                    return result + "%";
+                                } else {
+                                    return '';
+                                }
+                                if (totalPercentage == 0) {
+                                    return 'No answer';
+                                } else {
+                                    if (result == 0) {
+                                        return '';
+                                    }
+                                }
+                            },
+                        },
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                boxWidth: 8,
+                                boxHeight: 6,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                generateLabels: function (chart) {
+                                    var labels = chart.data.labels;
+                                    var dataset = chart.data.datasets[0];
+                                    var legend = labels.map(function (label, index) {
+                                        if (label.trim().length > 12) {
+                                            label = label.substr(0,10)+'...'
+                                        }
+                                        return {
+                                            datasetIndex: 0,
+                                            fillStyle: dataset.backgroundColor && dataset.backgroundColor[index],
+                                            strokeStyle: dataset.borderColor && dataset.borderColor[index],
+                                            lineWidth: dataset.borderWidth,
+                                            text: label
+                                        }
+                                    });
+                                    return legend;
+                                }
+                            
+                            },
+
+
+                        },
+
+                    },
+                },
+                plugins: [ChartDataLabels],
+            }
+        };
+        let myChart = new Chart(listData[i], configs[chartDatas[i].QuestionCategoryId]);
+        function moveScroll() {
+            let { ctx, canvas, chartArea: { left, bottom, top, right, width, height } } = myChart;
+            canvas.addEventListener('click', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                if (x >= myChart.chartArea.left - 15 && x <= myChart.chartArea.left + 15 && y >= myChart.chartArea.height / 2 + top - 15 && y <= myChart.chartArea.height / 2 + top + 15) {
+                    myChart.options.scales.x.min = myChart.options.scales.x.min - 7;
+                    myChart.options.scales.x.max = myChart.options.scales.x.max - 7;
+
+                    if (myChart.options.scales.x.min <= 0) {
+                        myChart.options.scales.x.min = 0;
+                        myChart.options.scales.x.max = 6;
+                    }
+
+                }
+                if (x >= myChart.chartArea.right - 15 && x <= myChart.chartArea.right + 15 && y >= myChart.chartArea.height / 2 + top - 15 && y <= myChart.chartArea.height / 2 + top + 15) {
+                    myChart.options.scales.x.min = myChart.options.scales.x.min + 7;
+                    myChart.options.scales.x.max = myChart.options.scales.x.max + 7;
+
+                    if (myChart.options.scales.x.max >= dataCount.length) {
+                        myChart.options.scales.x.min = dataCount.length - 7;
+                        myChart.options.scales.x.max = dataCount.length;
+                    }
+
+                }
+                myChart.update();
+            })
+        }
+        myChart.ctx.onclick = moveScroll();
+    }
+
+
+</script>

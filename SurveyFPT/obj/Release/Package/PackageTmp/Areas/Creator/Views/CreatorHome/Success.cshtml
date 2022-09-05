@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sucesss</title>
+    <link rel="stylesheet" href="~/Content/Css/Survey/error.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+</head>
+<body>
+
+    @Html.Partial("_CreaterPartial")
+    <div class="main-content">
+        @Html.Partial("_LoginPartial")
+        <main>
+            <div class="container">
+                <div class="content">
+                    <div class="content-body">
+                        <h1 class="text text-title">@ViewBag.Name </h1>
+                        <p class="text text-danger">Your response has been recorded.</p>
+                    </div>
+                    <hr />
+                    @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        <div class="content-footer">
+
+                            @Html.AntiForgeryToken()
+                            <button onclick="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Log Out</button>
+
+                        </div>
+                    }
+
+                </div>
+                <p class="text text-out">Nội dung này không phải do Google tạo ra hay xác nhận. Báo cáo Lạm dụng - Điều khoản Dịch vụ - Chính sách quyền riêng tư</p>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

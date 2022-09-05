@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@Html.Partial("_AdminPartial")
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <main>
+        <h2 class="dash-title">Assign Role</h2>
+        
+        <section class="recent">
+            <p id="messager"></p>
+            @*<form action="~/Admin/AdminHome/AssignRole" method="post">*@
+            <input id="id" value="0" hidden />
+            <input class="text" id="mail" type="text" name="mail" placeholder="Username" required="" value="@ViewBag.mail">
+            <select id="fpt" name="fpt" style="margin-top:20px">
+                @foreach (var a in ViewBag.fpt)
+                {
+
+                    <option value="@a">
+                        @a
+                    </option>
+
+                }
+            </select>
+            <br />
+            <select id="role" name="roleid" style="margin-top:20px">
+                @foreach (var a in ViewBag.roles)
+                {
+
+                    <option value="@a.Id">
+                        @a.Name
+                    </option>
+
+                }
+            </select><br />
+            <input type="checkbox" id="active" checked hidden /><br />
+            <input class="btn btn-success" type="submit" value="Assign" id="btnSave">
+            @*</form>*@
+        </section>
+</div>
+    </main>
+<script>
+    document.getElementById("btnSave").onclick = function () {
+        const mail = document.getElementById("mail");
+        const messager = document.getElementById("messager");
+        var re = /^[A-Za-z]+[0-9A-Za-z_]+$/;
+        var mailValue = mail.value.trim();
+
+        console.log(mail.value);
+        if (mailValue == "" || mailValue == null) {
+            mail.focus();
+            messager.innerHTML = "Fill text please!";
+            messager.style.color = "red";
+            mail.value = "";
+            return;
+        }
+        if (mailValue.length > 50) {
+            mail.focus();
+            messager.innerHTML = "Email less than or equal 50 characters!";
+            messager.style.color = "red";
+            mail.value = mail.value.trim();
+            return;
+        }
+        const check = re.test(String(mailValue));
+        if (!check) {
+            mail.focus();
+            messager.innerHTML = "Email cannot start with number or contain special character!";
+            messager.style.color = "red";
+            mail.value = mail.value.trim();
+            return;
+        }
+        $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: '@Url.Action("AssignRole", "AdminHome",new { area = "Admin" })', // Controller/View
+                data: { //Passing data
+                    ID: $('#id').val(),
+                    Mail: $("#mail").val(), //Reading text box values using Jquery
+                    Roleid: $("#role option:selected").val(),
+                    Fpt: $("#fpt option:selected").val(),
+                    Active: $("#active:checked").val()
+                },
+                success: function (result) {
+                    //console.log(result);
+                    switch (result) {
+                        case "1":
+                            result = "Insert success!"
+                            break;
+                        case "2":
+                            result = "Email exited!"
+                            break;
+                        case "3":
+                            result = "Update success!"
+                            break;
+                        case "4":
+                            result = "Email doesn't exit!"
+                            break;
+                    }
+                        mail.focus();
+                        messager.innerHTML = result;
+                        messager.style.color = "red";
+                        mail.value = mail.value.trim();
+                    
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+
+            })
+    }
+
+    
+
+</script>

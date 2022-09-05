@@ -1,0 +1,55 @@
+﻿body {
+    background-image: url('Img/HCM-scaled.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.container {
+    text-align: center;
+}
+
+.form-control {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 15%;
+    background-color: rgb(255, 255, 255,0.5);
+    border-radius:20px;
+}
+
+.form-group__element {
+    margin-top: 20px;
+}
+
+.btn.login-gg {
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: white;
+    margin-top: 20px;
+}
+
+h1 {
+    margin-top: 40px;
+    color: black;
+    padding-bottom: 15px;
+    border-bottom: solid 1px rgba(255,255,255,.5);
+}
+
+.login-gg {
+    border-radius: unset;
+    border: 1px solid black;
+    margin-bottom: 10%;
+}
+
+.text-content {
+    margin-top: 4%;
+    margin-bottom: 10px;
+}
+
+.login-text {
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0;
+}

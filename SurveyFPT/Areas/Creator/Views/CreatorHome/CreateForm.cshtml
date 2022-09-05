@@ -1,0 +1,356 @@
+﻿@model SurveyFPT.DTO.InputDTO.SurveyCreateDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section creatorsurvey{
+    <script src="~/Scripts/CreateSurvey/createsurvey.js"></script>
+}
+@section csssurvey{
+    <link href="~/Content/Css/Creator/createform.css" rel="stylesheet" />
+}
+@Html.Partial("_CreaterPartial")
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <style>
+        .text-limit {
+            width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <main>
+        <h2>Create new survey</h2>
+        @using (Html.BeginForm("CreateForm", "CreatorHome", FormMethod.Post, new { area = "Creator", enctype = "multipart/form-data" , @id ="myForm"}))
+        {
+            @Html.AntiForgeryToken()
+            int sindex = 0;
+            int qindex = 0;
+            int aindex = 0;
+    <div class="survey">
+        <div class="survey-date">
+            <div class="survey-date-list">
+                <label class="survey-date-list_txt">Open-time</label>
+                <input type="datetime-local" class="survey-date_input" id="birthdaytime" name="OpenTime">
+                <small class="survey-date-list_noti"></small>
+            </div>
+            <div class="survey-date-list">
+                <label class="survey-date-list_txt">Close-time</label>
+                <input type="datetime-local" class="survey-date_input" id="birthdaytime1" name="CloseTime">
+                <small class="survey-date-list_noti"></small>
+            </div>
+        </div>
+        <div class="survey-option">
+            <div class="survey-option-check">
+                <input type="checkbox" class="survey-option-check_input" name="IsRequire" style="margin-right:10px" value="true" />
+                <label style="margin-right:30px">Required survey</label> <br />
+
+                <input type="checkbox" class="survey-option-check_input" name="IsPublish" style="margin-right:10px" value="true" />
+                <label style="margin-right:30px">Public survey</label><br />
+
+                <input type="checkbox" class="survey-option-check_input" name="IsAllowChanging" style="margin-right:10px" value="true" />
+                <label style="margin-right:30px">Allow edit</label><br />
+
+                @*<input type="checkbox" class="survey-option-check_input" name="IsScoreTaken" style="margin-right:10px" value="true" />
+                <label style="margin-right:30px">Score</label>*@
+            </div>
+            <div class="survey-option-category">
+                <label style="margin-right:10px">Survey Category</label>
+                <select name="SurveyCategory.ID" id="survey-Category" class="text-limit" style="width:180px">
+                    @for (int k = 0; k < @ViewBag.ListCategory.Count; k++)
+                    {
+                        <option value="@ViewBag.ListCategory[k].ID ">@ViewBag.ListCategory[k].Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <label><b>Choose image: </b></label>
+            <input type="file" name="imagefile" id="upload_image" accept="image/*" onchange="fileImageValidation()" />
+            <input type="text" name="tempImage" id="tempImage" value="" hidden />
+        </div>
+        <div class="col-sm-12" style="justify-content:center">
+            <div style="width:100%">
+                    <img style="width:100%; height:300px; display:none" id="pre_img" src="" alt="No image" />
+            </div>
+        </div>
+
+    </div>
+            <div class="input-title">
+                @Html.HiddenFor(m => m.ID)
+                <div class="form-title">
+                    @Html.TextBoxFor(m => m.Name, htmlAttributes: new { @class = "title-name element", @placeholder = "Untitled form" })
+                    <br />
+                    <small></small>
+                </div>
+                 <div class="form-description">
+                    @Html.TextAreaFor(m => m.Description, htmlAttributes: new { @class = "title-description element", @placeholder = "Form description"})
+                     <br />
+                    <small></small>
+                 </div>
+                 @*// Code cu 26/7*@
+                <!-- @Html.TextBoxFor(m => m.Name, htmlAttributes: new { @class = "title-name element", @placeholder = "Untitled form", @required = "required" })
+                <br />
+                @Html.TextBoxFor(m => m.Description, htmlAttributes: new { @class = "title-description element", @placeholder = "Form description", @required = "required" }) -->
+            </div>
+            <div class="title-form" id="myList">
+                <div class="container" id="form-section">
+                    @Html.HiddenFor(m => m.Sections[sindex.ToString()].ID)
+                    <div class="section section-1">
+                        <div class="section-title">
+                            @Html.TextBoxFor(m => m.Sections[sindex.ToString()].Name, new { @class = "section-title_input element", @placeholder = "Untitled title" })
+                            <br />
+                            <small></small>
+                        </div>
+                        <div class="section-description">
+                            @Html.TextBoxFor(m => m.Sections[sindex.ToString()].Description, new { @class = "section-description_input element", @placeholder = "Description" })
+                            <br />
+                            <small></small>
+                        </div>
+                        <div class="container section-question section-question-1">
+                            <div class="question question-1">
+                                @Html.HiddenFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].ID)
+                                <div class="question-list">
+                                    <div class="question-list-title">
+                                        @Html.TextBoxFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].QuestionLabel,
+                                            new { @class = "question-list-title_input element", @placeholder = "Untitled question"})
+                                        <div class="question-list-title_option">
+                                            <select name="Sections[0].Questions[0].QuestionCategory.ID" class="btn-select" id="type-question-1" onchange="selectType(1,0,0)">
+                                                <option value="1">Multiple choice</option>
+                                                <option value="2">Checkboxes</option>
+                                                <option value="3">Short answer</option>
+                                                <option value="4">Linear scale</option>
+                                            </select>
+                                        </div>
+                                        <small class="error-question"></small>
+                                    </div>
+
+                                    <!-- Câu trả lời trắc nghiệm     -->
+                                    <div class="answer answer-1">
+                                        <div class="answer-choice answer-choice-1">
+
+                                        </div>
+                                        <div class="answer-other answer-other-1">
+
+                                        </div>
+                                        <small class="required-answer"></small>
+                                    </div>
+                                    <!-- /Câu trả lời trắc nghiệm     -->
+                                    <!-- Câu trả lời ranking -->
+                                    <div class="rank rank-1" style="display: none;">
+                                        <div class="rank-number">
+                                            <select class="rank-number_first">
+                                                <option value="1" selected>1</option>
+                                            </select>
+                                            <span class="rank-number_txt">to</span>
+                                            <select name="number-rank-1" class="rank-number_last" id="rank-number_last-1" onchange="selectNumberLast(1,0,0)">
+                                                <option value="2" selected>2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                        <div class="rank-content rank-content-1">
+                                            <div class="rank-content-number rank-content-number-1">
+                                                @Html.HiddenFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].LinearAnswers[aindex].ID)
+                                                <span class="rank-content-number_txt">1</span>
+                                                <input type="hidden" name="Sections[0].Questions[0].LinearAnswers[0].ScaleNumber" value="1" />
+                                                @Html.TextBoxFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].LinearAnswers[aindex].ScaleLabel,
+                                                new { @class = "rank-content-number_input", @placeholder = "Label" })
+                                                <small class="error-rank"></small>
+                                            </div>
+                                            <div class="rank-content-number rank-content-number-1">
+                                                @Html.HiddenFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].LinearAnswers[1].ID)
+                                                <span class="rank-content-number_txt">2</span>
+                                                <input type="hidden" name="Sections[0].Questions[0].LinearAnswers[1].ScaleNumber" value="2" />
+                                                @Html.TextBoxFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].LinearAnswers[1].ScaleLabel,
+                                                new { @class = "rank-content-number_input", @placeholder = "Label" })
+                                                <small class="error-rank"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Câu trả lời ranking -->
+                                    <!-- Câu trả lời ngắn -->
+                                    <div class="short short-1" style="display: none;">
+
+                                    </div>
+
+                                    <!-- /Câu trả lời ngắn -->
+                                    <!-- Câu trả lời thêm -->
+                                    <div class="other other-1" style="display: none;">
+                                        @Html.HiddenFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].TextAnswer.ID)
+                                        <div class="other-content other-content-1">
+                                            @Html.TextBoxFor(m => m.Sections[sindex.ToString()].Questions[qindex.ToString()].TextAnswer.Label,
+                                                 new { @class = "other-content_input", @placeholder = "Short answer text"})
+                                            <button class="btnOtherDelete fa-solid fa-trash" type="button" onclick="removeOther(1)" title="Delete text expand"></button>
+                                        </div>
+                                        <small class="error-expand"></small>
+                                    </div>
+
+                                    <!-- /Câu trả lời thêm -->
+                                    <div class="option-add">
+                                        <div class="add add-1">
+                                            <div class="add-answer">
+                                                <div class="add-answer-option">
+                                                    <span class="add-answer-option_choose" onclick="addAnswer(1,0,0)">Add Option</span>
+                                                </div>
+                                                <div class="add-answer-choice add-answer-choice-1">
+                                                    <span class="add-answer-choice_other" onclick="addChoiceOther(1,0,0)">Add "Other"</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="add-answer-other add-answer-other-1">
+                                            <span class="add-answer-other_choose" onclick="addOther(1,0,0)">Text expand</span>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box">
+                                        <span class="checkbox-content">Required</span>
+                                        <div class="checkbox-a">
+                                            <input type="checkbox" name="Sections[0].Questions[0].IsRequire" value="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-box">
+                                    <div class="option-element">
+                                        <i class="fa-solid fa-plus" onclick="addQuestion(1,0,this)" title="Add question"></i>
+                                        <i class="fa-solid fa-trash" onclick="delQuestion(this)" title="Delete question"></i>
+                                        <i class="fa-solid fa-chevron-up ClickUP" aria-hidden="true" onclick="ChangePositionUP(this)" title="Move up question"></i>
+                                        <i class="fa-solid fa-chevron-down ClickDOWN" aria-hidden="true" onclick="ChangePositionDOWN(this)" title="Move down question"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-section">
+                        <div class="option-element">
+                            <i class="fa-solid fa-plus" onclick="addSection(this)" title="Add section"></i>
+                            <i class="fa-solid fa-trash" onclick="delSection(this)" title="Delete section"></i>
+                            <i class="fa-solid fa-chevron-up ClickUP" aria-hidden="true" onclick="ChangePositionUP(this)" title="Move up section"></i>
+                            <i class="fa-solid fa-chevron-down ClickDOWN" aria-hidden="true" onclick="ChangePositionDOWN(this)" title="Move up section"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            // Code cu 26-7
+            <!-- <button type="submit"class="btn btn-primary" style="margin:40px 0">Submit</button> -->
+            //Import file hieumt
+    <div class="excel">
+        <div class="row col-sm-12">
+            <div class="col-sm-6">
+                <div class="excel-title">
+                    <h5 class="excel-title_txt">Assign Student</h5>
+                </div>
+                <div class="excel-file">
+                    <input type="file" name="excelfile" id="upload" onchange="return fileValidation()" />
+                </div>
+                <div class="excel-content">
+                    <a class="excel-content_txt" id="link" download>Your file upload (upload a file first)</a>
+                </div>
+            </div>
+            <div class="col-sm-6" style="display: flex; /* float: right; */ align-content: space-around; justify-content: flex-end; align-items: center; flex-wrap: wrap">
+                <b >Here is sample excel: </b>
+                <a class="btn" style="border:1px solid black" href="@Url.Action("exportSampleExcel", "CreatorHome", new { area = "Creator" })">Sample Excel</a>
+            </div>
+        </div>
+    </div>
+            
+            <div class="row col-sm-12">
+                <button type="button" class="btn btn-primary" style="margin:40px 0" onclick="check('#myForm')">Submit</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title col-10">Create Survey</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Do you want to submit?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="submitID" class="btn btn-success">Submit</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </main>
+
+    <script>
+        function fileValidation() {
+            var fileInput =
+                document.getElementById('upload');
+
+            var filePath = fileInput.value;
+
+            // Allowing file type
+            var allowedExtensions =
+                /(\.xls|\.xlsx)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            }
+        }
+
+        const input = document.getElementById('upload');
+        const link = document.getElementById('link');
+        let objectURL;
+
+        input.addEventListener('change', function () {
+            console.log(input.value)
+            if (objectURL) {
+                // revoke the old object url to avoid using more memory than needed
+                URL.revokeObjectURL(objectURL);
+            }
+            if (input.value == '' || input.value == null) {
+                link.removeAttribute("href");
+                link.removeAttribute('download');
+                link.innerHTML = "Your file upload (upload a file first)";
+                return;
+            }
+
+            console.log(1);
+            const file = this.files[0];
+            objectURL = URL.createObjectURL(file);
+            link.innerHTML = input.value;
+            link.download = file.name; // this name is used when the user downloads the file
+            link.href = objectURL;
+        });
+
+        const inputImage = document.getElementById('upload_image');
+        function fileImageValidation() {
+            var filePath = inputImage.value;
+
+            // Allowing file type
+            var allowedExtensions =
+                /(\.jpeg|\.jpg|\.png|\.jfif|\.pjpeg|\.pjp)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type (.jpeg .jpg .png .jfif .pjpeg .pjp)');
+                inputImage.value = '';
+                image.style.display = "none";
+                return false;
+            }
+        }
+
+        const image = document.getElementById('pre_img');
+        inputImage.addEventListener('change', (e) => {
+            if (inputImage.value.trim() == '' || inputImage.value == null) {
+                image.setAttribute("src", '');
+                image.style.display = "none";
+            }
+            if (e.target.files.length) {
+                const src = URL.createObjectURL(e.target.files[0]);
+                image.src = src;
+                image.style.display = "block";
+            }
+        });
+    </script>
+</div>

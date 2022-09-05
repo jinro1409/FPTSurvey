@@ -1,0 +1,381 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --main-color: #e38d13;
+    --main-dark: #1D2231;
+    --text-grey: #8390A2;
+}
+
+* {
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+
+#sidebar-toggle {
+    display: none;
+}
+
+.search-box {
+    margin-left: 20%;
+}
+
+.search-input {
+    height: 38px;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: 1px solid black;
+    width: 50%;
+}
+
+    .search-input:focus {
+        outline: none;
+        border: 1px solid #e38d13;
+    }
+
+.btn.btn-primary {
+    margin-left: 20px;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: var(--main-color);
+    color: #fff;
+    overflow-y: auto;
+    transition: width 500ms;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 1rem;
+}
+
+.sidebar-menu {
+    padding: 1rem;
+}
+
+.sidebar li {
+    margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+    color: #fff;
+    font-size: .9rem;
+}
+
+    .sidebar a span:last-child {
+        padding-left: .6rem;
+    }
+
+#sidebar-toggle:checked ~ .sidebar {
+    width: 60px;
+}
+
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+    #sidebar-toggle:checked ~ .sidebar li span:last-child {
+        display: none;
+    }
+
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header,
+    #sidebar-toggle:checked ~ .sidebar li {
+        display: flex;
+        justify-content: center;
+    }
+
+
+#sidebar-toggle:checked ~ .main-content {
+    margin-left: 60px;
+}
+
+    #sidebar-toggle:checked ~ .main-content header {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+
+
+.main-content {
+    position: relative;
+    margin-left: 240px;
+    transition: margin-left 500ms;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    z-index: 100;
+    width: calc(100% - 240px);
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-bottom: 1px solid #ccc;
+    transition: left 500ms;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-icons_name,
+.dropdown {
+    margin-left: 1.2rem;
+    margin-bottom: -0.8rem;
+}
+
+
+.dropdown {
+        height: 38px;
+        width: 38px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(/Content/Img/User_icon_2.svg.png);
+        position: relative;
+        display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    top: 35px;
+    right: 10px;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 20px 20px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    margin-top: 60px;
+    background: #f1f5f9;
+    min-height: 90vh;
+    padding: 1rem 3rem;
+}
+
+.dash-title {
+    color: var(--main-dark);
+    margin-bottom: 1rem;
+}
+
+.recent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.activity-card {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+    .activity-card table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .activity-card thead {
+        background: #efefef;
+        text-align: left;
+    }
+
+th, td {
+    font-size: .9rem;
+    padding: 1rem .5rem;
+    color: var(--main-dark);
+}
+
+tr th {
+    text-align: center;
+}
+
+tr td {
+    text-align: center;
+}
+
+tr td:first-child {
+        text-align: left;
+ }
+tr th:first-child {
+    width: 300px;
+    text-align: left;
+}
+
+td {
+    font-size: .8rem;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9fafc;
+}
+
+.badge {
+    padding: .2rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: .7rem;
+}
+
+    .badge.success {
+        background: #def7ec;
+        color: var(--main-color)
+    }
+
+    .badge.warning {
+        background: #def7ec;
+        color: red;
+    }
+
+    .badge.processing {
+        background: #def7ec;
+        color: purple;
+    }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+@media only screen and (max-width:1200px) {
+    .sidebar {
+        width: 60px;
+        z-index: 150;
+    }
+
+        .sidebar .sidebar-header h3 span,
+        .sidebar li span:last-child {
+            display: none;
+        }
+
+        .sidebar .sidebar-header,
+        .sidebar li {
+            display: flex;
+            justify-content: center;
+        }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+        .main-content header {
+            left: 60px;
+            width: calc(100% - 60px);
+        }
+
+
+    #sidebar-toggle:checked ~ .sidebar {
+        width: 240px;
+    }
+
+        #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+        #sidebar-toggle:checked ~ .sidebar li span:last-child {
+            display: inline;
+        }
+
+        #sidebar-toggle:checked ~ .sidebar .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #sidebar-toggle:checked ~ .sidebar li {
+            display: block;
+        }
+
+
+    #sidebar-toggle:checked ~ .main-content {
+        margin-left: 60px;
+    }
+
+        #sidebar-toggle:checked ~ .main-content header {
+            left: 60px;
+        }
+}
+
+@media only screen and (max-width:860px) {
+    .activity-grid {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.sidebar a span:last-child {
+    padding-right: .6rem;
+}
+
+
+@media only screen and (max-width: 500px) {
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+        table tr {
+            margin-bottom: 15px;
+        }
+
+        table td {
+            text-align: right;
+            padding-left: 50%;
+            text-align: right;
+            position: relative;
+        }
+
+            table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 4%;
+                font-size: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+    .text-name {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .dropdown {
+        left: 64px
+    }
+
+    .dropdown-content {
+        right: -108px;
+    }
+
+    .search-student {
+        margin-top: 10px !important;
+        margin-left: 0 !important;
+    }
+}

@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_CreaterPartial")
+<div class="main-content">
+    <script>
+        function paggerSearch(pageindex, totalpage, gap, id_container, search, categoryid) {
+        var container = document.getElementById(id_container);
+        container.setAttribute('class', 'nice nav justify-content-center');
+
+        if (pageindex - gap > 1) {
+            container.innerHTML += "<a href='@Url.Action("ManagerForm", "CreatorHome", new { area = "Creator" })?page=1&search=@ViewBag.search&categoryid=@ViewBag.categoryid'>First</a>";
+        }
+
+        for (var i = pageindex - gap; i < pageindex; i++) {
+            if (i > 0) {
+                container.innerHTML += "<a href='@Url.Action("ManagerForm", "CreatorHome", new { area = "Creator" })?page=" + i + "&search=@ViewBag.search&categoryid=@ViewBag.categoryid'>" + i + "</a>";
+            }
+        }
+
+        container.innerHTML += "<span>" + pageindex + "</span>";
+
+        for (var i = pageindex + 1; i <= pageindex + gap; i++) {
+            if (i <= totalpage) {
+                container.innerHTML += "<a href='@Url.Action("ManagerForm", "CreatorHome", new { area = "Creator" })?page=" + i + "&search=@ViewBag.search&categoryid=@ViewBag.categoryid'>" + i + "</a>";
+            }
+        }
+
+        if (pageindex + gap < totalpage) {
+            container.innerHTML += "<a href='@Url.Action("ManagerForm", "CreatorHome",new { area = "Creator" })?page=" + totalpage + "&search=@ViewBag.search&categoryid=@ViewBag.categoryid'>Last</a>";
+        }
+
+    }
+    </script>
+    @Html.Partial("_LoginPartial")
+    <style>
+        #bottompagger > a,
+        #bottompagger > span {
+            margin: 1rem;
+            border-bottom: 1px solid black;
+            border-radius: 50%;
+            padding: 0.25rem
+        }
+
+        #bottompagger > span {
+            font-weight: bold;
+            font-size: 120%;
+            border: none
+        }
+    </style>
+    <main>
+        <h2 class="dash-title">Survey management</h2>
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="search-box" style="margin-bottom:20px">
+                    <form name="form_search" action="@Url.Action("ManagerForm", "CreatorHome",new { area = "Creator" })" onsubmit="required()">
+                        <h6>Survey category:</h6>
+                        <select id="surveyCategory" name="categoryid">
+                            <option value="-1">All</option>
+                            @foreach (var a in ViewBag.surveyCategoryDTOs)
+                            {
+                                if (a.ID == ViewBag.categoryid)
+                                {
+                                    <option value="@a.ID" selected>
+                                        @a.Name
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option value="@a.ID">
+                                        @a.Name
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <input class="search-input" type="text" name="search" placeholder="Input search" value="@ViewBag.search" />
+                        <input class="btn btn-primary" style="margin:0 0 0 0; border-radius:10%" type="submit" value="Search" />
+
+                    </form>
+                </div>
+                    <div class="activity-card">
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Survey</th>
+                                        <th>Starting Date</th>
+                                        <th>Closing Date</th>
+                                        <th>Publish</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var s in ViewBag.surveyDTOs)
+                                    {
+                                        <tr>
+                                            <td>@s.Name</td>
+                                            <td>@s.OpenTime</td>
+                                            <td>@s.CloseTime</td>
+                                            @if (s.IsPublish == true)
+                                            {
+                                                <td style="color:green">Yes</td>
+                                            }
+                                            else
+                                            {
+                                                <td style="color:red">No</td>
+                                            }
+                                            <td>
+                                                <a href="@Url.Action("EditForm", "CreatorHome",new { area = "Creator" })?id=@s.ID"><span class="ti-pencil" style="color: blue;"></span></a>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <div id="bottompagger"></div>
+    </main>
+    <script>
+        paggerSearch(@ViewBag.page, @ViewBag.totalpage, 2, "bottompagger", "@ViewBag.search", "@ViewBag.categoryid");
+
+        function required() {
+            var empt = document.forms["form_search"]["search"].value;
+            if (empt.trim() == "") {
+                console.log('??')
+                document.forms["form_search"]["search"].value = "";
+            }
+        }
+    </script>
+</div>

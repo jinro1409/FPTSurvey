@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_AdminPartial")
+
+
+<div class="main-content">
+    <script>
+    function paggerSearch(pageindex, totalpage, gap, id_container, search) {
+        var container = document.getElementById(id_container);
+        container.setAttribute('class', 'nice nav justify-content-center');
+
+        if (pageindex - gap > 1) {
+            container.innerHTML += "<a href='@Url.Action("Index", "AdminHome",new { area = "Admin" })?page=1&search=@ViewBag.search'>First</a>";
+        }
+
+        for (var i = pageindex - gap; i < pageindex; i++) {
+            if (i > 0) {
+                container.innerHTML += "<a href='@Url.Action("Index", "AdminHome",new { area = "Admin" })?page=" + i + "&search=@ViewBag.search'>" + i + "</a>";
+            }
+        }
+
+        container.innerHTML += "<span>" + pageindex + "</span>";
+
+        for (var i = pageindex + 1; i <= pageindex + gap; i++) {
+            if (i <= totalpage) {
+                container.innerHTML += "<a href='@Url.Action("Index", "AdminHome",new { area = "Admin" })?page=" + i + "&search=@ViewBag.search'>" + i + "</a>";
+            }
+        }
+
+        if (pageindex + gap < totalpage) {
+            container.innerHTML += "<a href='@Url.Action("Index", "AdminHome",new { area = "Admin" })?page=" + totalpage + "&search=@ViewBag.search'>Last</a>";
+        }
+
+    }
+    </script>
+
+    @Html.Partial("_LoginPartial")
+    <style>
+        #bottompagger > a,
+        #bottompagger > span
+        {
+            margin:1rem;
+            border-bottom:1px solid black;
+            border-radius :50%;
+            padding:0.25rem
+        }
+        #bottompagger > span {
+            font-weight:bold;
+            font-size:120%;
+            border:none
+        }
+    </style>
+    <main>
+        <h2 class="dash-title">List account</h2>
+        <div class="search-box">
+            <form action="@Url.Action("Index", "AdminHome",new { area = "Admin" })">
+                <input class="search-input" type="text" name="search" placeholder="Search" value="@ViewBag.search" />
+                <input class="btn btn-primary"  type="submit" value="Search" />
+            </form>
+            </div>
+            <section class="recent">
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <div class="table-responsive">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-3">Mail</th>
+                                        <th class="col-sm-3">Name</th>
+                                        <th class="col-sm-2">Role</th>
+                                        <th class="col-sm-2">Active</th>
+                                        <th class="col-sm-2">Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var ac in ViewBag.list)
+                                    {
+                                        <tr>
+                                            <td>@ac.Mail</td>
+                                            <td>@ac.Name</td>
+                                            <td>@ac.Role.Name</td>
+                                            @if (ac.Active == true)
+                                            {
+                                                <td style="color:green">Active</td>
+                                            }
+                                            else
+                                            {
+                                                <td style="color:red">Inactive</td>
+                                            }
+                                            <td>
+                                                <a href="@Url.Action("DetailUser","AdminHome",new { area = "Admin", id=@ac.Id })"><span class="ti-pencil" style="color: blue;"></span></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="bottompagger"></div>
+
+    </main>
+    <script>
+    paggerSearch(@ViewBag.page, @ViewBag.totalpage, 2, "bottompagger", "@ViewBag.search");
+    </script>
+</div>
+

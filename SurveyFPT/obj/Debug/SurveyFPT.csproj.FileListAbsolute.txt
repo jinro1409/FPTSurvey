@@ -1,0 +1,535 @@
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\SurveyFPT.dll.config
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\SurveyFPT.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\SurveyFPT.pdb
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\csc.exe
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\csc.exe.config
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\csc.rsp
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\csi.exe
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\csi.rsp
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\System.AppContext.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\vbc.exe
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\vbc.exe.config
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\vbc.rsp
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\VBCSCompiler.exe
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Antlr3.Runtime.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\EntityFramework.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\EntityFramework.SqlServer.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Newtonsoft.Json.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Owin.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Helpers.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Mvc.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Optimization.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Razor.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.WebPages.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Razor.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\WebGrease.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Helpers.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Mvc.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Optimization.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.Razor.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.WebPages.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Razor.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Newtonsoft.Json.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Antlr3.Runtime.pdb
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\EntityFramework.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\EntityFramework.SqlServer.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csprojAssemblyReference.cache
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CoreCompileInputs.cache
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CopyComplete
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.dll
+C:\Users\KiThuat 88\Desktop\ky9\FUSurvey\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.pdb
+E:\FPT\SurveyFPT\SurveyFPT\bin\SurveyFPT.dll.config
+E:\FPT\SurveyFPT\SurveyFPT\bin\SurveyFPT.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\SurveyFPT.pdb
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\csc.exe
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\csc.exe.config
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\csc.rsp
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\csi.exe
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\csi.rsp
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\System.AppContext.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\System.Collections.Immutable.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\System.IO.FileSystem.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\System.Reflection.Metadata.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\vbc.exe
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\vbc.exe.config
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\vbc.rsp
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\VBCSCompiler.exe
+E:\FPT\SurveyFPT\SurveyFPT\bin\roslyn\VBCSCompiler.exe.config
+E:\FPT\SurveyFPT\SurveyFPT\bin\Antlr3.Runtime.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\EntityFramework.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\EntityFramework.SqlServer.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.Google.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Web.Infrastructure.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Newtonsoft.Json.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Owin.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Helpers.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Mvc.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Optimization.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Razor.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.WebPages.Deployment.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.WebPages.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.WebPages.Razor.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\WebGrease.dll
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.Google.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Helpers.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Mvc.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Optimization.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.Razor.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.WebPages.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.WebPages.Deployment.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\System.Web.WebPages.Razor.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Newtonsoft.Json.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Antlr3.Runtime.pdb
+E:\FPT\SurveyFPT\SurveyFPT\bin\EntityFramework.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\EntityFramework.SqlServer.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\FPT\SurveyFPT\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\FPT\SurveyFPT\SurveyFPT\obj\Debug\SurveyFPT.csproj.AssemblyReference.cache
+E:\FPT\SurveyFPT\SurveyFPT\obj\Debug\SurveyFPT.csproj.CoreCompileInputs.cache
+E:\FPT\SurveyFPT\SurveyFPT\obj\Debug\SurveyFPT.csproj.CopyComplete
+E:\FPT\SurveyFPT\SurveyFPT\obj\Debug\SurveyFPT.dll
+E:\FPT\SurveyFPT\SurveyFPT\obj\Debug\SurveyFPT.pdb
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\grpc_csharp_ext.x86.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\grpc_csharp_ext.x64.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\libgrpc_csharp_ext.x64.so
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\libgrpc_csharp_ext.x64.dylib
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\SurveyFPT.dll.config
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\SurveyFPT.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\SurveyFPT.pdb
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csc.exe
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csc.exe.config
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csc.rsp
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csi.exe
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csi.rsp
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.AppContext.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\vbc.exe
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\vbc.exe.config
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\vbc.rsp
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\VBCSCompiler.exe
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Antlr3.Runtime.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.SqlServer.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.Api.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Newtonsoft.Json.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Owin.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Buffers.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Memory.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Helpers.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Mvc.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Optimization.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Razor.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Razor.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\WebGrease.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.pdb
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.Api.pdb
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.Api.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Buffers.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Memory.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Helpers.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Mvc.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Optimization.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Razor.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Razor.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Newtonsoft.Json.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Antlr3.Runtime.pdb
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.SqlServer.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CoreCompileInputs.cache
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CopyComplete
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.dll
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.pdb
+C:\Users\KiThuat 88\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csprojAssemblyReference.cache
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\grpc_csharp_ext.x86.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\grpc_csharp_ext.x64.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\libgrpc_csharp_ext.x64.so
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\libgrpc_csharp_ext.x64.dylib
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\SurveyFPT.dll.config
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\SurveyFPT.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\SurveyFPT.pdb
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csc.exe
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csc.exe.config
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csc.rsp
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csi.exe
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\csi.rsp
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.AppContext.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\vbc.exe
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\vbc.exe.config
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\vbc.rsp
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\VBCSCompiler.exe
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Antlr3.Runtime.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.SqlServer.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\EPPlus.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.Api.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Hangfire.Core.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Hangfire.SqlServer.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Kentor.OwinCookieSaver.Two.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Newtonsoft.Json.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Owin.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Swashbuckle.Core.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Buffers.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Memory.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Net.Http.Formatting.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Cors.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Helpers.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Http.Cors.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Http.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Http.WebHost.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Mvc.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Optimization.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Razor.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Razor.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\WebActivatorEx.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\WebGrease.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\EPPlus.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.pdb
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.Api.pdb
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Grpc.Core.Api.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Hangfire.Core.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Hangfire.SqlServer.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Kentor.OwinCookieSaver.Two.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Buffers.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Memory.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Net.Http.Formatting.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Http.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Http.Cors.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Http.WebHost.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Helpers.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Mvc.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Optimization.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.Razor.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\System.Web.WebPages.Razor.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Newtonsoft.Json.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Antlr3.Runtime.pdb
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\ca\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\de\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\es\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\fa\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\fr\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\nb\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\nl\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\pt\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\pt-BR\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\pt-PT\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\tr-TR\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\zh\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.pdb
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Libs\SD.Tools.LinqToSQL2.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\Libs\System.Data.Common.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\SD.Tools.LinqToSQL2.dll
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\bin\SD.Tools.LinqToSQL2.pdb
+C:\Users\ADMIN\Desktop\FUSurvey\SurveyFPT\obj\Debug\SurveyFPT.csproj.AssemblyReference.cache
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Libs\SD.Tools.LinqToSQL2.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Libs\System.Data.Common.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\grpc_csharp_ext.x86.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\grpc_csharp_ext.x64.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\libgrpc_csharp_ext.x64.so
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\libgrpc_csharp_ext.x64.dylib
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\SurveyFPT.dll.config
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\SurveyFPT.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\SurveyFPT.pdb
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\csc.exe
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\csc.exe.config
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\csc.rsp
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\csi.exe
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\csi.rsp
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\System.AppContext.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\System.Collections.Immutable.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\System.IO.FileSystem.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\System.Reflection.Metadata.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\vbc.exe
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\vbc.exe.config
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\vbc.rsp
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\VBCSCompiler.exe
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\roslyn\VBCSCompiler.exe.config
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Antlr3.Runtime.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\EntityFramework.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\EntityFramework.SqlServer.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\EPPlus.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Grpc.Core.Api.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Grpc.Core.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Hangfire.Core.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Hangfire.SqlServer.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Kentor.OwinCookieSaver.Two.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.Google.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Web.Infrastructure.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Newtonsoft.Json.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Owin.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\SD.Tools.LinqToSQL2.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Swashbuckle.Core.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Buffers.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Memory.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Net.Http.Formatting.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Cors.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Helpers.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Http.Cors.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Http.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Http.WebHost.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Mvc.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Optimization.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Razor.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.WebPages.Deployment.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.WebPages.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.WebPages.Razor.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\WebActivatorEx.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\WebGrease.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\EPPlus.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Grpc.Core.pdb
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Grpc.Core.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Grpc.Core.Api.pdb
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Grpc.Core.Api.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Hangfire.Core.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Hangfire.SqlServer.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Kentor.OwinCookieSaver.Two.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.Google.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\SD.Tools.LinqToSQL2.pdb
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Buffers.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Memory.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Net.Http.Formatting.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Http.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Http.Cors.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Http.WebHost.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Helpers.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Mvc.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Optimization.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.Razor.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.WebPages.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.WebPages.Deployment.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\System.Web.WebPages.Razor.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Newtonsoft.Json.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Antlr3.Runtime.pdb
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\EntityFramework.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\EntityFramework.SqlServer.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\ca\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\de\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\es\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\fa\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\fr\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\nb\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\nl\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\pt\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\pt-BR\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\pt-PT\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\tr-TR\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\zh\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\bin\zh-TW\Hangfire.Core.resources.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\obj\Debug\SurveyFPT.csproj.AssemblyReference.cache
+D:\Work_Space\FPT\Survey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CoreCompileInputs.cache
+D:\Work_Space\FPT\Survey\SurveyFPT\obj\Debug\SurveyFPT.csproj.CopyComplete
+D:\Work_Space\FPT\Survey\SurveyFPT\obj\Debug\SurveyFPT.dll
+D:\Work_Space\FPT\Survey\SurveyFPT\obj\Debug\SurveyFPT.pdb

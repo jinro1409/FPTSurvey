@@ -1,0 +1,46 @@
+﻿
+@model SurveyFPT.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="~/Content/login.css" type="text/css" />
+</head>
+<body>
+    @{
+        var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+        if (loginProviders.Count() == 0)
+        {
+            <div>
+                <p>
+                    There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                    for details on setting up this ASP.NET application to support logging in via external services.
+                </p>
+            </div>
+        }
+        else
+        {
+            using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+                <div id="socialLoginList">
+                    <p>
+                        @foreach (AuthenticationDescription p in loginProviders)
+                        {
+                        <button type="submit" class="btn login-gg" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
+                            <img src="~/Content/Img/google_icon.ico" alt="" width="18" height="18" style="margin-right:6px ;margin-bottom:4px;">
+                            Sign in
+                        </button>
+                        }
+                    </p>
+                </div>
+            }
+        }
+    }
+</body>
+</html>
+

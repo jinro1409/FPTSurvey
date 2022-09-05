@@ -1,0 +1,231 @@
+﻿@model SurveyFPT.DTO.ResponseSurveyDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section csssurvey{
+    <link href="~/Content/Css/Survey/survey.css" rel="stylesheet" />
+}
+@section creatorsurvey{
+    <script src="~/Scripts/Survey/index.js"></script>
+}
+@Html.Partial("_UserPartial")
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <main>
+        <div class="survey">
+            @using (Html.BeginForm("GetSurvey", "Survey", FormMethod.Post, new
+            {
+                area = "",
+                @id = "myForm",
+                onsubmit = "return check('#myForm')"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                int qindex = 0;
+                int lindex = 0;
+                int tindex = 0;
+                string checkAnswer = "";
+                @Html.HiddenFor(m => m.Survey.ID)
+                @Html.HiddenFor(m => m.Survey.Name)
+
+                if (@Model.Survey.BackgroundImage !=null && @Model.Survey.BackgroundImage.ToUpper() != "NULL" && !@Model.Survey.BackgroundImage.ToString().Equals(""))
+                {
+                    <div class="" style="justify-content:center; margin-bottom:1rem">
+                        <img style="
+                        width: 100%;
+                        height: 300px;
+                        border-radius: 10px;"
+                             id="pre_img" src="~/Content/Img/SurveyImage/@Model.Survey.BackgroundImage" alt="No image" />
+                    </div>
+                }
+
+
+                <!-- Title Form -->
+
+                <div class="survey-title">
+                    <div class="survey-group-element">
+                        <h1 class="survey-header">@Html.DisplayFor(model => model.Survey.Name)</h1>
+                        <textarea class="survey-header-description" readonly disabled>@Html.DisplayFor(model => model.Survey.Description)</textarea>
+                    </div>
+                </div>
+                <!-- Section form -->
+                if (Model.Survey.Sections.Count > 0)
+                {
+                    foreach (var sec in Model.Survey.Sections)
+                    {
+                        <div class="survey-section">
+
+                            <div class="survey-section-group">
+                                <h3 class="survey-section-title">@sec.Name</h3>
+                                <label class="survey-section-description">@sec.Description</label>
+                            </div>
+                            @if (sec.Questions.Count > 0)
+                            {
+                                foreach (var questionSection in sec.Questions)
+                                {
+                                    if (questionSection.QuestionCategory.ID == 1)
+                                    {
+                                        checkAnswer = "answer-radio";
+                                    }
+                                    else if (questionSection.QuestionCategory.ID == 2)
+                                    {
+                                        checkAnswer = "answer-checkbox";
+                                    }
+                                    else if (questionSection.QuestionCategory.ID == 3)
+                                    {
+                                        checkAnswer = "answer-text";
+                                    }
+                                    else if (questionSection.QuestionCategory.ID == 4)
+                                    {
+                                        checkAnswer = "answer-linear";
+                                    }
+                                    <!-- Radio -->
+                                    <div class="survey-answer @checkAnswer">
+                                        <div class="survey-answer-group">
+                                            @if (@questionSection.IsRequire == true)
+                                            {
+                                                <label class="survey-text-element check-requied">@questionSection.QuestionLabel</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="survey-text-content">@questionSection.QuestionLabel</label>
+                                            }
+                                            @switch (questionSection.QuestionCategory.ID)
+                                            {
+                                                case 1:
+                                                    foreach (var choice in questionSection.ChoiceAnswers)
+                                                    {
+                                                        @Html.HiddenFor(m => m.ResponsedChoiceAnswerDTOs[qindex].ID)
+                                                        @Html.HiddenFor(m => m.ResponsedChoiceAnswerDTOs[qindex].IsChecked, new { Value = true })
+                                                        <div class="answer">
+
+                                                            @if (choice.IsOtherChoice == false)
+                                                            {
+                                                                @Html.RadioButtonFor(m => m.ResponsedChoiceAnswerDTOs[qindex].Choice.ID, choice.ID, new { @class = "button-radio option", onclick = "javascript:docheck(this);" })
+                                                                <lable class="text-answer" onclick="chooseLabelRadio(this)">@choice.Label</lable>
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.RadioButtonFor(m => m.ResponsedChoiceAnswerDTOs[qindex].Choice.ID, choice.ID, new { @class = "button-radio option-others", onclick = "javascript:docheck(this);" })
+                                                                @Html.EditorFor(m => m.ResponsedChoiceAnswerDTOs[qindex].IsOtherChoiceText.Text,
+                                                                 new
+                                                                 {
+                                                                     htmlAttributes = new
+                                                                     {
+                                                                         @class = "answer-other option",
+                                                                         @placeholder = "Others:...",
+                                                                         @id = "mytxt"
+
+                                                                     }
+                                                                 })
+                                                            }
+
+                                                        </div>
+                                                    }
+
+                                                    qindex++;
+                                                    break;
+                                                case 2:
+                                                    foreach (var choice in questionSection.ChoiceAnswers)
+                                                    {
+                                                        @Html.HiddenFor(m => m.ResponsedChoiceAnswerDTOs[qindex].ID)
+                                                        <div class="answer">
+                                                            @Html.HiddenFor(m => m.ResponsedChoiceAnswerDTOs[qindex].Choice.ID, new { Value = choice.ID })
+                                                            @if (choice.IsOtherChoice == false)
+                                                            {
+                                                                @Html.CheckBoxFor(m => m.ResponsedChoiceAnswerDTOs[qindex].IsChecked, new { @class = "button-radio option-checkbox" })
+                                                                <lable class="text-answer" onclick="chooseLabelBoxLine(this)">@choice.Label</lable>
+                                                            }
+                                                            else
+                                                            {
+                                                                @Html.CheckBoxFor(m => m.ResponsedChoiceAnswerDTOs[qindex].IsChecked, new { @class = "button-radio option-checkbox-others" })
+                                                                @Html.EditorFor(m => m.ResponsedChoiceAnswerDTOs[qindex].IsOtherChoiceText.Text,
+                                                                   new
+                                                                   {
+                                                                       htmlAttributes = new
+                                                                       {
+                                                                           @class = "answer-other option-checkbox",
+                                                                           @placeholder = "Others:..."
+                                                                       }
+                                                                   })
+                                                            }
+                                                        </div>
+                                                        qindex++;
+                                                    }
+                                                    break;
+                                                case 4:
+                                                    <div class="answer-level">
+                                                        @foreach (var rank in questionSection.LinearAnswers)
+                                                        {
+                                                            <div class="answer-group">
+                                                                @Html.HiddenFor(m => m.ResponsedLinearScaleAnswers[lindex].ID)
+                                                                <label class="text-radio">@rank.ScaleNumber</label>
+                                                                <br />
+
+                                                                @Html.RadioButtonFor(m => m.ResponsedLinearScaleAnswers[lindex].LinearAnswer.ID, rank.ID,
+                                                                new { @class = "button-radio-level option-linear", onclick = "javascript:docheck(this);" })
+                                                                <br />
+                                                                <label class="text-radio" onclick="chooseLabelBoxLine(this)">@rank.ScaleLabel</label>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                    lindex++;
+                                                    break;
+                                            }
+                                            @if (questionSection.TextAnswer != null)
+                                            {
+                                                @Html.HiddenFor(m => m.TextAnswerDTOs[tindex].TextAnswerDTO.ID, new { Value = questionSection.TextAnswer.ID })
+                                                @Html.EditorFor(m => m.TextAnswerDTOs[tindex].Response, new
+                                                {
+                                                    htmlAttributes = new
+                                                    {
+                                                        @class = "survey-input-element option-text",
+                                                        @placeholder = questionSection.TextAnswer.Label
+                                                    }
+                                                })
+                                                tindex++;
+                                            }
+                                        </div>
+                                        <div class="error  text-danger" id="error"></div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    }
+                }
+                <button type="button" onclick="check('#myForm')" class="btn btn-primary" style="margin-bottom:40px">Submit</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title col-10">Submit Survey</h4>
+                                <!-- <button type="button" class="close col-1" data-dismiss="modal">&times;</button> -->
+                            </div>
+                            <div class="modal-body">
+                                <p>Do you want to submit this survey?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit"  id="submitID" class="btn btn-success">Submit</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</div>
+<script>
+    var checkedradio;
+    function docheck(thisradio) {
+        if (checkedradio == thisradio) {
+            thisradio.checked = false;
+            checkedradio = null;
+        }
+        else { checkedradio = thisradio; }
+    }
+
+</script>

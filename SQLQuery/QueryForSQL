@@ -1,0 +1,15 @@
+SELECT * FROM 
+Survey S JOIN SurveyCategory SC ON SC.id=S.survey_category_id
+JOIN Section SE ON S.id=SE.survey_id
+JOIN Question Q ON Q.section_id=SE.id
+JOIN QuestionCategory QC ON QC.id=Q.question_category_id
+LEFT JOIN TextAnswer T ON T.question_id= Q.id
+ LEFT JOIN Choice C ON C.question_id=Q.id
+ LEFT JOIN LinearScale L ON L.question_id=Q.id
+ JOIN SurveyResponse sp ON sp.survey_id = s.id
+ LEFT JOIN ReponsedChoiceAnswer rca ON rca.choice_id = C.id
+ LEFT JOIN ResponsedOtherChoiceAnswer roca ON roca.reponsed_choice_answer_id = rca.id
+ LEFT JOIN ResponseTextAnswer rta ON rta.text_answer_id =T.id
+ LEFT JOIN ReponsedLinearScaleAnswer rlsa ON rlsa.linear_scale_id = L.id
+WHERE S.ID= 1
+ ORDER BY SE.[order] ASC,Q.[order] ASC, C.[order], L.scale_number

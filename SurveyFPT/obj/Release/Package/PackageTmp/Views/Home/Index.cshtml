@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_UserPartial")
+<div class="main-content">
+    <script>
+    function paggerSearch(pageindex, totalpage, gap, id_container, search) {
+        var container = document.getElementById(id_container);
+        container.setAttribute('class', 'nice nav justify-content-center');
+
+        if (pageindex - gap > 1) {
+            container.innerHTML += "<a href='@Url.Action("Index", "Home",new { area = "" })?page=1&search=@ViewBag.search"+ "&response=@ViewBag.response'>First</a>";
+        }
+
+        for (var i = pageindex - gap; i < pageindex; i++) {
+            if (i > 0) {
+                container.innerHTML += "<a href='@Url.Action("Index", "Home",new { area = "" })?page=" + i + "&search=@ViewBag.search"+ "&response=@ViewBag.response'>" + i + "</a>";
+            }
+        }
+
+        container.innerHTML += "<span>" + pageindex + "</span>";
+
+        for (var i = pageindex + 1; i <= pageindex + gap; i++) {
+            if (i <= totalpage) {
+                container.innerHTML += "<a href='@Url.Action("Index", "Home",new { area = ""  })?page=" + i + "&search=@ViewBag.search"+ "&response=@ViewBag.response'>" + i + "</a>";
+            }
+        }
+
+        if (pageindex + gap < totalpage) {
+            container.innerHTML += "<a href='@Url.Action("Index", "Home",new { area = "" })?page=" + totalpage + "&search=@ViewBag.search"+ "&response=@ViewBag.response'>Last</a>";
+        }
+
+    }
+    </script>
+
+    @Html.Partial("_LoginPartial")
+    <style>
+        #bottompagger > a,
+        #bottompagger > span {
+            margin: 1rem;
+            border-bottom: 1px solid black;
+            border-radius: 50%;
+            padding: 0.25rem
+        }
+
+        #bottompagger > span {
+            font-weight: bold;
+            font-size: 120%;
+            border: none
+        }
+
+        .text {
+            display: block;
+            width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <main>
+        <h2 class="dash-title">Survey</h2>
+        <form action="@Url.Action("Index", "Home",new { area = "" })">
+            <input type="text" name="search" value="@ViewBag.search" class="search-input" placeholder="Search"/>
+            <input type="text" name="response" value="@ViewBag.response" hidden/>
+            <input   class="btn btn-primary search-student" type="submit" value="Search" />
+        </form>
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Survey</th>
+                                    <th>Code</th>
+                                    <th>Date Start</th>
+                                    <th>Closing Date</th>
+                                    <th>Require</th>
+                                    <th>Changing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var s in ViewBag.surveyDTOs)
+                                {
+                                <tr>
+                                    @if (ViewBag.response == 1)
+                                    {
+                                        <td data-label="Name">
+                                            <a class="text text-name" href="@Url.Action("Update","Survey",new { area = "", id=@s.ID })">
+                                                @s.Name
+                                            </a>
+
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td data-label="Name">
+                                            <a class="text text-name" href="@Url.Action("Index","Survey",new { area = "", id=@s.ID })"> @s.Name</a>
+
+                                        </td>
+                                    }
+
+
+                                    <td data-label="Code">@s.Code</td>
+                                    <td data-label="Opentime">@s.OpenTime</td>
+                                    <td data-label="Closetime">@s.CloseTime</td>
+                                    @if (s.IsRequire == true)
+                                    {
+                                        <td data-label="Require" style="color:green">Yes</td>
+                                    }
+                                    else
+                                    {
+                                        <td data-label="Require" style="color:red">No</td>
+                                    }
+                                    @if (s.IsAllowChanging == true)
+                                    {
+                                        <td data-label="Changing" style="color:green">Yes</td>
+                                    }
+                                    else
+                                    {
+                                        <td data-label="Changing" style="color:red">No</td>
+                                    }
+                                </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <div id="bottompagger"></div>
+        @ViewBag.Message
+    </main>
+    <script>
+    paggerSearch(@ViewBag.page, @ViewBag.totalpage, 2, "bottompagger", "@ViewBag.search");
+    </script>
+</div>

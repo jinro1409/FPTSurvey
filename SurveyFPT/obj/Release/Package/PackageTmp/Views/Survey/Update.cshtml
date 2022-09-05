@@ -1,0 +1,367 @@
+﻿@model SurveyFPT.DTO.Responsed.ResponsedSurveyDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section csssurvey{
+    <link href="~/Content/Css/Survey/survey.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+}
+@section creatorsurvey{
+    <script src="~/Scripts/Survey/index.js"></script>
+}
+@Html.Partial("_UserPartial")
+<div class="main-content">
+    @Html.Partial("_LoginPartial")
+    <main>
+        <div class="survey">
+            @using (Html.BeginForm("Update", "Survey", FormMethod.Post, new { area = "", @id = "myFormEdit", onsubmit = "return check('#myFormEdit')" }))
+            {
+                @Html.AntiForgeryToken()
+                int sigleIndex = 0;
+                int multipleIndex = 0;
+                int textIndex = 0;
+                int linearIndex = 0;
+                string checkAnswer = "";
+                @Html.HiddenFor(m => m.UpdateResponsedSurvey.ID, new { Value = Model.ID })
+                @Html.HiddenFor(m => m.Name, new { Value = Model.Name })
+
+                <!--img-->
+                if (@Model.BackgroundImage != null && @Model.BackgroundImage.ToUpper() != "NULL" && !@Model.BackgroundImage.ToString().Equals(""))
+                {
+                    <div class="" style="justify-content:center; margin-bottom:1rem">
+                        <img style="
+                        width: 100%;
+                        height: 300px;
+                        border-radius: 10px;"
+                             id="pre_img" src="~/Content/Img/SurveyImage/@Model.BackgroundImage" alt="No image" />
+                    </div>
+                }
+                <!--Survey title-->
+                <div class="survey-title">
+                    <div class="survey-group-element">
+                        <h1 class="survey-header">@Html.DisplayFor(model => model.Name)</h1>
+                        <textarea class="survey-header-description" readonly disabled>@Html.DisplayFor(model => model.Description)</textarea>
+                    </div>
+                </div>
+                <!-- Section form -->
+
+                foreach (var sec in Model.Sections)
+                {
+
+                    <div class="survey-section">
+                        <div class="survey-section-group">
+                            <h3 class="survey-section-title">@sec.Name</h3>
+                            <label class="survey-section-description">@sec.Description</label>
+                        </div>
+                        @foreach (var question in sec.Questions)
+                        {
+                            if (question.QuestionCategory.ID == 1)
+                            {
+                                checkAnswer = "answer-radio";
+                            }
+                            else if (question.QuestionCategory.ID == 2)
+                            {
+                                checkAnswer = "answer-checkbox";
+                            }
+                            else if (question.QuestionCategory.ID == 3)
+                            {
+                                checkAnswer = "answer-text";
+                            }
+                            else if (question.QuestionCategory.ID == 4)
+                            {
+                                checkAnswer = "answer-linear";
+                            }
+                            <!-- Radio -->
+                            <div class="survey-answer @checkAnswer">
+                                <div class="survey-answer-group">
+                                    @if (question.IsRequire == true)
+                                    {
+                                        <label class="survey-text-element check-requied">@question.QuestionLabel</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="survey-text-content">@question.QuestionLabel</label>
+                                    }
+                                    @switch (question.QuestionCategory.ID)
+                                    {
+
+                                        case 1:
+                                            foreach (var choice in question.ChoiceAnswers)
+                                            {
+                                                object htmlAttributes;
+                                                string abc = "button-radio option";
+
+
+                                                <div>
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].ID, new { Value = choice.ResponsedID })
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].OldChoiceID, new { Value = choice.OldResponsedID })
+
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].IsOtherChoice, new { Value = choice.IsOtherChoice })
+
+                                                    @if (choice.IsOtherChoice == true)
+                                                    {
+                                                        abc += "-others";
+                                                        if (choice.Ischecked)
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                @checked = "checked",
+                                                                onclick = "javascript:docheck(this);"
+
+                                                            };
+
+                                                        }
+                                                        else
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                onclick = "javascript:docheck(this);"
+                                                            };
+                                                        }
+                                                        @Html.RadioButtonFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].ChoiceID,
+                                                    choice.ID, htmlAttributes)
+                                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].ResponsedIsOtherChoiceID, new { Value = choice.ResponsedIsOtherChoice.ID })
+                                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].OldIsOtherChoiceResponse, new { Value = choice.ResponsedIsOtherChoice.Response })
+
+                                                        @Html.EditorFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].ResponsedIsOtherChoiceResponse,
+                                                                 new
+                                                                 {
+                                                                     htmlAttributes = new
+                                                                     {
+                                                                         @class = "answer-other option",
+                                                                         @placeholder = "Others:...",
+                                                                         @id = "mytxt",
+                                                                         @Value = choice.ResponsedIsOtherChoice.Response
+                                                                     }
+                                                                 })
+                                                    }
+                                                    else
+                                                    {
+                                                        if (choice.Ischecked)
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                @checked = "checked",
+                                                                onclick = "javascript:docheck(this);"
+
+                                                            };
+
+                                                        }
+                                                        else
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                onclick = "javascript:docheck(this);"
+                                                            };
+                                                        }
+                                                        @Html.RadioButtonFor(m => m.UpdateResponsedSurvey.SingleChoiceDTOs[sigleIndex].ChoiceID,
+                                                   choice.ID, htmlAttributes)
+                                                        <lable class="text-answer">@choice.Label</lable>
+
+
+
+                                                    }
+                                                </div>
+                                            }
+                                            sigleIndex++;
+
+                                            break;
+                                        case 2:
+                                            foreach (var choice in question.ChoiceAnswers)
+                                            {
+                                                object htmlAttributes;
+                                                string abc = "button-radio option-checkbox";
+
+
+                                                <div class="answer">
+
+
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].ChoiceID,
+                                                   new { Value = choice.ID })
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].ID,
+                                                   new { Value = choice.ResponsedID })
+
+                                                    @if (choice.IsOtherChoice == false)
+                                                    {
+                                                        if (choice.Ischecked)
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                @checked = "checked"
+
+                                                            };
+
+                                                        }
+                                                        else
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                @unchecked = "unchecked"
+                                                            };
+                                                        }
+                                                        @Html.CheckBoxFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].IsChecked, htmlAttributes)
+                                                        <lable class="text-answer">@choice.Label</lable>
+                                                    }
+                                                    else
+                                                    {
+                                                        abc += "-others";
+                                                        if (choice.Ischecked)
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                @checked = "checked"
+
+                                                            };
+
+                                                        }
+                                                        else
+                                                        {
+                                                            htmlAttributes = new
+                                                            {
+                                                                @class = abc,
+                                                                @unchecked = "unchecked"
+                                                            };
+                                                        }
+
+                                                        @Html.CheckBoxFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].IsChecked, htmlAttributes)
+                                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].ResponsedIsOtherChoiceID, new { Value = choice.ResponsedIsOtherChoice.ID })
+                                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].OldIsOtherChoiceResponse, new { Value = choice.ResponsedIsOtherChoice.Response })
+                                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].IsOtherChoice, new { Value = choice.IsOtherChoice })
+                                                        @Html.EditorFor(m => m.UpdateResponsedSurvey.MultipleChoiceDTOs[multipleIndex].ResponsedIsOtherChoiceResponse,
+                                                            new
+                                                            {
+                                                                htmlAttributes = new
+                                                                {
+                                                                    @class = "answer-other option-checkbox",
+                                                                    @placeholder = "Others:...",
+                                                                    @Value = choice.ResponsedIsOtherChoice.Response
+                                                                }
+                                                            })
+                                                    }
+                                                </div>
+                                                multipleIndex++;
+                                            }
+                                            break;
+                                        case 4:
+                                            <div class="answer-level">
+                                                @foreach (var linear in question.LinearAnswers)
+                                                {
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.LinearScaleDTOs[linearIndex].ID, new { Value = linear.ResponsedID })
+                                                    @Html.HiddenFor(m => m.UpdateResponsedSurvey.LinearScaleDTOs[linearIndex].OldLinearID, new { Value = linear.OldSacle });
+
+                                                    object htmlAttributes;
+                                                    if (linear.IsChecked)
+                                                    {
+                                                        htmlAttributes = new
+                                                        {
+                                                            @class = "button-radio-level option-linear",
+                                                            @checked = "checked",
+                                                            onclick = "javascript:docheck(this);"
+                                                        };
+
+                                                    }
+                                                    else
+                                                    {
+                                                        htmlAttributes = new
+                                                        {
+                                                            @class = "button-radio-level option-linear",
+                                                            @unchecked = "unchecked",
+                                                            onclick = "javascript:docheck(this);"
+
+                                                        };
+                                                    }
+                                                    <div class="answer-group">
+                                                        <label class="text-radio">@linear.ScaleNumber</label>
+                                                        <br />
+                                                        @Html.RadioButtonFor(m => m.UpdateResponsedSurvey.LinearScaleDTOs[linearIndex].LinearID,
+                                                                            linear.ID, htmlAttributes)
+                                                        <br />
+                                                        <label class="text-radio">@linear.ScaleLabel</label>
+                                                    </div>
+                                                }
+                                            </div>
+                                            linearIndex++;
+                                            break;
+                                    }
+                                    @if (question.TextAnswer != null)
+                                    {
+                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.TextDTOs[textIndex].ID, new { Value = question.TextAnswer.ResponsedID })
+                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.TextDTOs[textIndex].ResponsedTextID, new { Value = question.TextAnswer.ID })
+                                        @Html.HiddenFor(m => m.UpdateResponsedSurvey.TextDTOs[textIndex].ResponsedText, new { Value = question.TextAnswer.ResponsedText.Text })
+                                        @Html.EditorFor(m => m.UpdateResponsedSurvey.TextDTOs[textIndex].Response,
+
+                                       new
+                                       {
+                                           htmlAttributes = new
+                                           {
+                                               @class = "survey-input-element option-text",
+                                               @placeholder = question.TextAnswer.Label,
+                                               @Value = question.TextAnswer.ResponsedText.Text,
+                                           }
+                                       })
+                                        textIndex++;
+                                    }
+                                </div>
+                                <div class="error  text-danger" id="error"></div>
+                            </div>
+                        }
+                    </div>
+                }
+                <label>@Model.UpdateResponsedSurvey</label>
+                if (Model.IsAllowChanging == true)
+                {
+                    <button type="button" onclick="check('#myFormEdit')" class="btn btn-primary" style="margin-bottom:40px">Submit</button>
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title col-10">Submit Survey</h4>
+                                    <!-- <button type="button" class="close col-1" data-dismiss="modal">&times;</button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <p>Do you want to submit this survey?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            }
+        </div>
+    </main>
+</div>
+<script>
+    var checkedradio;
+    function docheck(thisradio) {
+        if (checkedradio == thisradio) {
+            thisradio.checked = false;
+            checkedradio = null;
+        }
+        else { checkedradio = thisradio; }
+    }
+
+    function checkIsAllowChanging(test) {
+
+        if (test == 'False' || test == 'False') {
+            $(".button-radio, .survey-input-element, .answer-other, .button-radio-level").prop('disabled',true);
+            console.log('ok')
+        }
+    };
+
+    checkIsAllowChanging('@Model.IsAllowChanging');
+</script>

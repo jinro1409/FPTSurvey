@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h3 class="brand">
+            <span class="ti-unlink"></span>
+            <span>Admin</span>
+        </h3>
+        <label for="sidebar-toggle" class="ti-menu-alt"></label>
+    </div>
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a href="@Url.Action("Index","AdminHome",new { area = "Admin" })">
+                    <span class="ti-home"></span>
+                    <span>List Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("ManagerUser","AdminHome",new { area = "Admin" })">
+                    <span class="ti-user"></span>
+                    <span>Assign role</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("ListSurveyCategory","AdminHome",new { area = "Admin" })">
+                    <span class="ti-list"></span>
+                    <span>Survey category</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

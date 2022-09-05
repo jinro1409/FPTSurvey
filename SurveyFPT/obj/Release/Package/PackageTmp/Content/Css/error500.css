@@ -1,0 +1,27 @@
+html,body{
+    background-color: rgb(54, 54, 248) ;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.error{
+    height: 500px;
+    width: 500px;
+    margin-top: 5%;
+}
+.error-icon{
+    display: flex;
+    justify-content: center;
+}
+.error-content{
+    text-align: center;
+}
+.error-text{
+    padding-top: 25px;
+    color: red;
+}
+.fa-solid{
+    font-size: 250px;
+    color: rgb(54, 54, 248);
+}
